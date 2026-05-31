@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lab Setup Guide — CompTIA A+ Cyber Study Guide Companion</title>
-  <meta name="description" content="Lab environment setup guide: hardware requirements, VM downloads, and overview of all 7 hands-on lab exercises.">
+  <meta name="description" content="Lab environment setup guide: hardware requirements, VM downloads, and overview of all 10 hands-on lab exercises.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
   <div class="container">
     <div class="badge">Hands-On Practice</div>
     <h1>Lab Setup Guide</h1>
-    <p class="subtitle">Everything you need to build your home lab and complete the hands-on exercises.</p>
+    <p class="subtitle">Everything you need to build your home lab and complete the 10 hands-on exercises.</p>
   </div>
 </section>
 
@@ -109,96 +109,136 @@
 <section class="section">
   <div class="container">
     <h2>🧪 Lab Exercises</h2>
-    <p class="text-muted mb-2">7 hands-on exercises aligned to the study guide chapters.</p>
+    <p class="text-muted mb-2">10 hands-on exercises corresponding to key chapters and mirroring the 29 live labs in CompTIA's A+ Cyber course.</p>
     <div style="display:flex;flex-direction:column;gap:1.25rem" class="fade-in">
 
       <div class="card lab-card">
-        <div class="lab-num">1.1</div>
-        <div class="lab-chapter">Chapter 1</div>
-        <h3>Mapping a Security Incident</h3>
-        <p>Walk through a simulated security incident and map each action to the correct incident response phase (Preparation → Identification → Containment → Eradication → Recovery → Lessons Learned).</p>
-        <div class="lab-skills">
-          <span>Incident Response</span>
-          <span>NIST Framework</span>
-          <span>Documentation</span>
-        </div>
-      </div>
-
-      <div class="card lab-card">
-        <div class="lab-num">2.1</div>
-        <div class="lab-chapter">Chapter 2</div>
-        <h3>Linux Security Audit</h3>
-        <p>Perform a security audit on a Linux system: check file permissions, find SUID binaries, review user accounts, analyze authentication logs, and identify security misconfigurations.</p>
-        <div class="lab-skills">
-          <span>Linux Commands</span>
-          <span>Permissions</span>
-          <span>Log Analysis</span>
-          <span>SUID Detection</span>
-        </div>
-      </div>
-
-      <div class="card lab-card">
-        <div class="lab-num">3.1</div>
+        <div class="lab-num">Lab 1</div>
         <div class="lab-chapter">Chapter 3</div>
-        <h3>Windows Security Investigation</h3>
-        <p>Use PowerShell to investigate a Windows system: query Event Logs for suspicious activity, enumerate local users and groups, check running services, and review firewall rules.</p>
+        <h3>Windows User Account Hardening</h3>
+        <p>Create, configure, and harden user accounts following the principle of least privilege. Create standard and admin users, set password policies (minimum length, max age, lockout threshold), and verify settings using PowerShell and net commands.</p>
         <div class="lab-skills">
           <span>PowerShell</span>
-          <span>Event Logs</span>
-          <span>User Enumeration</span>
-          <span>System Administration</span>
+          <span>User Management</span>
+          <span>Password Policy</span>
+          <span>Least Privilege</span>
         </div>
       </div>
 
       <div class="card lab-card">
-        <div class="lab-num">4.1</div>
+        <div class="lab-num">Lab 2</div>
         <div class="lab-chapter">Chapter 4</div>
-        <h3>SOHO Router Security Audit</h3>
-        <p>Audit a SOHO router configuration: review wireless security settings, check NAT and port forwarding rules, assess default credentials, and verify firmware version.</p>
+        <h3>Linux File Permissions and Sudo</h3>
+        <p>Configure file permissions and sudo access to enforce least privilege. Set restrictive permissions on sensitive files, create limited user accounts, and configure granular sudo access using visudo.</p>
         <div class="lab-skills">
-          <span>Network Configuration</span>
-          <span>Wireless Security</span>
-          <span>NAT</span>
-          <span>Router Hardening</span>
+          <span>Linux Permissions</span>
+          <span>chmod/chown</span>
+          <span>Sudo Configuration</span>
+          <span>Least Privilege</span>
         </div>
       </div>
 
       <div class="card lab-card">
-        <div class="lab-num">6.1</div>
+        <div class="lab-num">Lab 3</div>
+        <div class="lab-chapter">Chapter 5</div>
+        <h3>Detect Brute-Force Attacks in Logs</h3>
+        <p>Parse authentication logs to identify and block brute-force SSH attempts. Analyze auth.log for failed passwords, identify offending IPs using awk/sort/uniq, and block attackers with ufw firewall rules.</p>
+        <div class="lab-skills">
+          <span>Log Analysis</span>
+          <span>Brute-Force Detection</span>
+          <span>ufw Firewall</span>
+          <span>awk/sort/uniq</span>
+        </div>
+      </div>
+
+      <div class="card lab-card">
+        <div class="lab-num">Lab 4</div>
         <div class="lab-chapter">Chapter 6</div>
-        <h3>Vulnerability Scanning with Nmap</h3>
-        <p>Use Nmap to perform network discovery, port scanning, service version detection, and basic vulnerability assessment against a target system.</p>
+        <h3>Network Scanning with Nmap</h3>
+        <p>Discover hosts and services on your local network using Nmap. Perform ping sweeps, port scans, service version detection, OS fingerprinting, and save scan results for analysis.</p>
         <div class="lab-skills">
           <span>Nmap</span>
           <span>Port Scanning</span>
           <span>Service Detection</span>
-          <span>Network Recon</span>
+          <span>OS Fingerprinting</span>
         </div>
       </div>
 
       <div class="card lab-card">
-        <div class="lab-num">7.1</div>
-        <div class="lab-chapter">Chapter 7</div>
-        <h3>Automated Security Monitor</h3>
-        <p>Write a Bash script that monitors system security: check for failed login attempts, detect new listening ports, and send alert notifications. Schedule it with cron for continuous monitoring.</p>
+        <div class="lab-num">Lab 5</div>
+        <div class="lab-chapter">Chapter 10</div>
+        <h3>Firewall Rule Configuration</h3>
+        <p>Configure iptables/ufw rules to implement a basic security policy. Set default deny incoming, allow specific services (SSH, HTTPS), enable the firewall, and test by attempting blocked connections.</p>
+        <div class="lab-skills">
+          <span>ufw/iptables</span>
+          <span>Firewall Rules</span>
+          <span>Default Deny</span>
+          <span>Service Whitelisting</span>
+        </div>
+      </div>
+
+      <div class="card lab-card">
+        <div class="lab-num">Lab 6</div>
+        <div class="lab-chapter">Chapter 12</div>
+        <h3>Snort IDS Configuration</h3>
+        <p>Install and configure Snort in IDS mode to detect suspicious network activity. Write custom detection rules, run Snort in test and console mode, and trigger alerts with ICMP traffic.</p>
+        <div class="lab-skills">
+          <span>Snort IDS</span>
+          <span>Rule Writing</span>
+          <span>Network Monitoring</span>
+          <span>Alert Analysis</span>
+        </div>
+      </div>
+
+      <div class="card lab-card">
+        <div class="lab-num">Lab 7</div>
+        <div class="lab-chapter">Chapter 14</div>
+        <h3>Vulnerability Scanning</h3>
+        <p>Run a vulnerability scan and interpret the results using Greenbone Community Edition (OpenVAS). Create scan targets, execute full scans, and review Critical/High/Medium/Low findings with remediation priorities.</p>
+        <div class="lab-skills">
+          <span>Greenbone/OpenVAS</span>
+          <span>Vulnerability Assessment</span>
+          <span>CVSS Scoring</span>
+          <span>Remediation</span>
+        </div>
+      </div>
+
+      <div class="card lab-card">
+        <div class="lab-num">Lab 8</div>
+        <div class="lab-chapter">Chapter 15</div>
+        <h3>Bash Security Audit Script</h3>
+        <p>Write a Bash script that performs a basic security audit of a Linux system — enumerate users with login shells, list sudoers, check listening ports, count failed logins, and find world-writable files.</p>
         <div class="lab-skills">
           <span>Bash Scripting</span>
-          <span>Cron Scheduling</span>
-          <span>Log Parsing</span>
-          <span>Automation</span>
+          <span>Security Auditing</span>
+          <span>System Enumeration</span>
+          <span>Report Generation</span>
         </div>
       </div>
 
       <div class="card lab-card">
-        <div class="lab-num">8.1</div>
-        <div class="lab-chapter">Chapter 8</div>
-        <h3>Backup and Recovery Practice</h3>
-        <p>Create backup archives, verify file integrity with checksums, practice GPG encryption/decryption, and simulate a disaster recovery scenario.</p>
+        <div class="lab-num">Lab 9</div>
+        <div class="lab-chapter">Chapter 17</div>
+        <h3>File Encryption with GPG</h3>
+        <p>Encrypt and decrypt files using both symmetric (AES-256) and asymmetric GPG encryption. Generate key pairs, verify keys, perform asymmetric encryption/decryption, and export public keys.</p>
         <div class="lab-skills">
-          <span>Backup/Recovery</span>
-          <span>Checksums</span>
           <span>GPG Encryption</span>
-          <span>Integrity Verification</span>
+          <span>Symmetric/Asymmetric</span>
+          <span>Key Management</span>
+          <span>AES-256</span>
+        </div>
+      </div>
+
+      <div class="card lab-card">
+        <div class="lab-num">Lab 10</div>
+        <div class="lab-chapter">Chapter 22</div>
+        <h3>Incident Response Simulation</h3>
+        <p>Practice all four NIST IR phases using a simulated compromised system. Create an IR checklist, detect unexpected services and suspicious processes, contain the threat with firewall rules, eradicate malicious artifacts, restore operations, and write a post-incident report.</p>
+        <div class="lab-skills">
+          <span>NIST IR Phases</span>
+          <span>Threat Detection</span>
+          <span>Containment</span>
+          <span>Forensic Reporting</span>
         </div>
       </div>
 
