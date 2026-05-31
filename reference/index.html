@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Reference — CompTIA A+ Cyber Study Guide Companion</title>
+  <meta name="description" content="Quick reference cards: ports & protocols, Windows Event IDs, Linux commands, PowerShell commands, risk formulas, and CVSS score ranges.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../index.html" class="nav-brand"><span class="icon">🛡️</span> A+ Cyber Companion</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../chapters/index.html">Chapters</a>
+      <a href="index.html" class="active">Reference</a>
+      <a href="../labs/index.html">Labs</a>
+      <a href="../glossary/index.html">Glossary</a>
+      <a href="../flashcards/index.html">Flashcards</a>
+      <a href="../quiz/index.html">Quiz</a>
+      <a href="../errata/index.html">Errata</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" style="padding:3rem 0 2rem">
+  <div class="container">
+    <div class="badge">Quick Reference</div>
+    <h1>Reference Cards</h1>
+    <p class="subtitle">Essential tables from the study guide — bookmark this page for fast review.</p>
+  </div>
+</section>
+
+<!-- Ports & Protocols -->
+<section class="section" id="ports">
+  <div class="container">
+    <h2>📡 Ports &amp; Protocols</h2>
+    <p class="text-muted mb-2">Know these cold for the CompCert assessment. Focus on encrypted vs. unencrypted alternatives.</p>
+    <div class="table-wrap fade-in">
+      <table class="ref-table">
+        <thead><tr><th>Port</th><th>Protocol</th><th>Encrypted?</th><th>Secure Alternative</th></tr></thead>
+        <tbody>
+          <tr><td>20/21</td><td>FTP</td><td>❌ No</td><td>SFTP (22), FTPS (990)</td></tr>
+          <tr><td>22</td><td>SSH / SFTP / SCP</td><td>✅ Yes</td><td>—</td></tr>
+          <tr><td>23</td><td>Telnet</td><td>❌ No</td><td>SSH (22)</td></tr>
+          <tr><td>25</td><td>SMTP</td><td>❌ No</td><td>SMTPS (587/465)</td></tr>
+          <tr><td>53</td><td>DNS</td><td>❌ No</td><td>DoH (443), DoT (853)</td></tr>
+          <tr><td>67/68</td><td>DHCP</td><td>❌ No</td><td>DHCP snooping</td></tr>
+          <tr><td>80</td><td>HTTP</td><td>❌ No</td><td>HTTPS (443)</td></tr>
+          <tr><td>110</td><td>POP3</td><td>❌ No</td><td>POP3S (995)</td></tr>
+          <tr><td>143</td><td>IMAP</td><td>❌ No</td><td>IMAPS (993)</td></tr>
+          <tr><td>161/162</td><td>SNMP</td><td>❌ No (v1/v2)</td><td>SNMPv3</td></tr>
+          <tr><td>389</td><td>LDAP</td><td>❌ No</td><td>LDAPS (636)</td></tr>
+          <tr><td>443</td><td>HTTPS</td><td>✅ Yes</td><td>—</td></tr>
+          <tr><td>3389</td><td>RDP</td><td>⚠️ Optional</td><td>RDP over VPN</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Windows Event IDs -->
+<section class="section section-alt" id="eventids">
+  <div class="container">
+    <h2>🪟 Windows Event IDs</h2>
+    <p class="text-muted mb-2">Critical Security and System log events for investigation and auditing.</p>
+    <div class="table-wrap fade-in">
+      <table class="ref-table">
+        <thead><tr><th>Event ID</th><th>Log</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>1102</code></td><td>Security</td><td>Audit log was cleared</td></tr>
+          <tr><td><code>4624</code></td><td>Security</td><td>Successful account logon</td></tr>
+          <tr><td><code>4625</code></td><td>Security</td><td>Failed account logon</td></tr>
+          <tr><td><code>4648</code></td><td>Security</td><td>Logon using explicit credentials</td></tr>
+          <tr><td><code>4672</code></td><td>Security</td><td>Special privileges assigned to new logon</td></tr>
+          <tr><td><code>4720</code></td><td>Security</td><td>A user account was created</td></tr>
+          <tr><td><code>4722</code></td><td>Security</td><td>A user account was enabled</td></tr>
+          <tr><td><code>4725</code></td><td>Security</td><td>A user account was disabled</td></tr>
+          <tr><td><code>4732</code></td><td>Security</td><td>Member added to security-enabled local group</td></tr>
+          <tr><td><code>4738</code></td><td>Security</td><td>A user account was changed</td></tr>
+          <tr><td><code>7045</code></td><td>System</td><td>A new service was installed in the system</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Linux Commands -->
+<section class="section" id="linux">
+  <div class="container">
+    <h2>🐧 Linux Commands</h2>
+    <p class="text-muted mb-2">Essential commands organized by category — know the syntax and purpose.</p>
+    <div class="table-wrap fade-in">
+      <table class="ref-table">
+        <thead><tr><th>Category</th><th>Command</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="6" style="font-weight:600;color:var(--accent)">Navigation</td><td><code>pwd</code></td><td>Print working directory</td></tr>
+          <tr><td><code>ls -la</code></td><td>List all files with details</td></tr>
+          <tr><td><code>cd /path</code></td><td>Change directory</td></tr>
+          <tr><td><code>find / -name "file"</code></td><td>Search for files by name</td></tr>
+          <tr><td><code>grep "pattern" file</code></td><td>Search text in files</td></tr>
+          <tr><td><code>cat / less / head / tail</code></td><td>View file contents</td></tr>
+          <tr><td rowspan="4" style="font-weight:600;color:var(--accent)">Permissions</td><td><code>chmod 750 file</code></td><td>Change file permissions</td></tr>
+          <tr><td><code>chown user:group file</code></td><td>Change file ownership</td></tr>
+          <tr><td><code>find / -perm -4000</code></td><td>Find SUID files</td></tr>
+          <tr><td><code>ls -la</code></td><td>View permissions</td></tr>
+          <tr><td rowspan="4" style="font-weight:600;color:var(--accent)">Users</td><td><code>useradd -m user</code></td><td>Create user</td></tr>
+          <tr><td><code>passwd user</code></td><td>Set password</td></tr>
+          <tr><td><code>usermod -aG group user</code></td><td>Add user to group</td></tr>
+          <tr><td><code>id user</code></td><td>Show user info</td></tr>
+          <tr><td rowspan="4" style="font-weight:600;color:var(--accent)">Networking</td><td><code>ip addr show</code></td><td>Show IP configuration</td></tr>
+          <tr><td><code>ss -tulnp</code></td><td>Show listening ports</td></tr>
+          <tr><td><code>ping host</code></td><td>Test connectivity</td></tr>
+          <tr><td><code>nmap target</code></td><td>Scan ports</td></tr>
+          <tr><td rowspan="3" style="font-weight:600;color:var(--accent)">Monitoring</td><td><code>ps aux</code></td><td>List processes</td></tr>
+          <tr><td><code>top / htop</code></td><td>Real-time process monitor</td></tr>
+          <tr><td><code>tail -f /var/log/auth.log</code></td><td>Watch auth log live</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PowerShell Commands -->
+<section class="section section-alt" id="powershell">
+  <div class="container">
+    <h2>⚡ PowerShell Commands</h2>
+    <p class="text-muted mb-2">Windows security investigation and system administration commands.</p>
+    <div class="table-wrap fade-in">
+      <table class="ref-table">
+        <thead><tr><th>Task</th><th>Command</th></tr></thead>
+        <tbody>
+          <tr><td>View security events</td><td><code>Get-EventLog -LogName Security -Newest 50</code></td></tr>
+          <tr><td>Find failed logins</td><td><code>Get-EventLog -LogName Security -InstanceId 4625</code></td></tr>
+          <tr><td>List local users</td><td><code>Get-LocalUser</code></td></tr>
+          <tr><td>List admin group members</td><td><code>Get-LocalGroupMember -Group "Administrators"</code></td></tr>
+          <tr><td>Check running services</td><td><code>Get-Service | Where-Object {$_.Status -eq "Running"}</code></td></tr>
+          <tr><td>View network connections</td><td><code>Get-NetTCPConnection -State Established</code></td></tr>
+          <tr><td>Check firewall status</td><td><code>Get-NetFirewallProfile</code></td></tr>
+          <tr><td>View scheduled tasks</td><td><code>Get-ScheduledTask | Where-Object {$_.State -ne "Ready"}</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Risk Formulas & CVSS -->
+<section class="section" id="risk">
+  <div class="container">
+    <div class="grid-2 fade-in">
+      <div>
+        <h2>📊 Risk Formulas</h2>
+        <p class="text-muted mb-2">Memorize these three formulas — they appear in scenario questions.</p>
+        <div class="card" style="margin-bottom:1rem">
+          <h3 style="color:var(--accent);font-family:var(--mono)">SLE = AV × EF</h3>
+          <p style="font-size:.85rem"><strong>Single Loss Expectancy</strong> = Asset Value × Exposure Factor<br>
+          <em>How much you lose from a single incident.</em></p>
+        </div>
+        <div class="card" style="margin-bottom:1rem">
+          <h3 style="color:var(--accent);font-family:var(--mono)">ALE = SLE × ARO</h3>
+          <p style="font-size:.85rem"><strong>Annualized Loss Expectancy</strong> = SLE × Annualized Rate of Occurrence<br>
+          <em>Expected yearly cost of a specific risk.</em></p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--accent);font-family:var(--mono)">Risk = Threat × Vulnerability × Impact</h3>
+          <p style="font-size:.85rem"><strong>Qualitative Risk Assessment</strong><br>
+          <em>A conceptual model for evaluating overall risk.</em></p>
+        </div>
+      </div>
+      <div>
+        <h2>🎯 CVSS Score Ranges</h2>
+        <p class="text-muted mb-2">Common Vulnerability Scoring System severity levels (0.0–10.0).</p>
+        <div class="table-wrap">
+          <table class="ref-table">
+            <thead><tr><th>Score Range</th><th>Severity</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td><code>0.0</code></td><td>None</td><td>Informational</td></tr>
+              <tr><td><code>0.1 – 3.9</code></td><td style="color:#10b981">Low</td><td>Scheduled patch</td></tr>
+              <tr><td><code>4.0 – 6.9</code></td><td style="color:#f59e0b">Medium</td><td>Prioritized patch</td></tr>
+              <tr><td><code>7.0 – 8.9</code></td><td style="color:#f97316">High</td><td>Expedited remediation</td></tr>
+              <tr><td><code>9.0 – 10.0</code></td><td style="color:#ef4444">Critical</td><td>Immediate action</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 style="margin-top:2rem">🔄 NIST IR Phases</h2>
+        <p class="text-muted mb-2">The four-phase NIST incident response lifecycle.</p>
+        <div class="table-wrap">
+          <table class="ref-table">
+            <thead><tr><th>#</th><th>Phase</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Preparation</td></tr>
+              <tr><td>2</td><td>Detection &amp; Analysis</td></tr>
+              <tr><td>3</td><td>Containment, Eradication &amp; Recovery</td></tr>
+              <tr><td>4</td><td>Post-Incident Activity</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 style="margin-top:2rem">📁 Linux File Permissions</h2>
+        <p class="text-muted mb-2">Numeric (octal) permission values.</p>
+        <div class="table-wrap">
+          <table class="ref-table">
+            <thead><tr><th>Value</th><th>Permission</th></tr></thead>
+            <tbody>
+              <tr><td><code>0</code></td><td>No permissions (---)</td></tr>
+              <tr><td><code>1</code></td><td>Execute (--x)</td></tr>
+              <tr><td><code>2</code></td><td>Write (-w-)</td></tr>
+              <tr><td><code>4</code></td><td>Read (r--)</td></tr>
+              <tr><td><code>5</code></td><td>Read + Execute (r-x)</td></tr>
+              <tr><td><code>6</code></td><td>Read + Write (rw-)</td></tr>
+              <tr><td><code>7</code></td><td>Full (rwx)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Order of Volatility -->
+<section class="section section-alt" id="volatility">
+  <div class="container">
+    <div class="grid-2 fade-in">
+      <div>
+        <h2>⏱️ Order of Volatility</h2>
+        <p class="text-muted mb-2">Collect evidence in this order — most volatile first.</p>
+        <div class="table-wrap">
+          <table class="ref-table">
+            <thead><tr><th>#</th><th>Source</th><th>Volatility</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>CPU registers &amp; cache</td><td style="color:#ef4444">Most volatile</td></tr>
+              <tr><td>2</td><td>RAM / running processes</td><td style="color:#f97316">Very high</td></tr>
+              <tr><td>3</td><td>Network state / connections</td><td style="color:#f97316">High</td></tr>
+              <tr><td>4</td><td>Temporary file systems</td><td style="color:#f59e0b">Moderate</td></tr>
+              <tr><td>5</td><td>Hard drive / disk</td><td style="color:#f59e0b">Moderate</td></tr>
+              <tr><td>6</td><td>Remote logging data</td><td style="color:#10b981">Low</td></tr>
+              <tr><td>7</td><td>Physical configuration</td><td style="color:#10b981">Low</td></tr>
+              <tr><td>8</td><td>Archival media (backups)</td><td style="color:#10b981">Least volatile</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h2>📜 Key Regulatory Frameworks</h2>
+        <p class="text-muted mb-2">Know the scope and requirements of each framework.</p>
+        <div class="table-wrap">
+          <table class="ref-table">
+            <thead><tr><th>Framework</th><th>Scope</th></tr></thead>
+            <tbody>
+              <tr><td><strong>HIPAA</strong></td><td>Protected Health Information (PHI)</td></tr>
+              <tr><td><strong>PCI DSS</strong></td><td>Payment card data</td></tr>
+              <tr><td><strong>GDPR</strong></td><td>EU personal data protection</td></tr>
+              <tr><td><strong>SOX</strong></td><td>Public company financial reporting</td></tr>
+              <tr><td><strong>FERPA</strong></td><td>Student education records</td></tr>
+              <tr><td><strong>GLBA</strong></td><td>Financial institution customer data</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <span class="footer-brand">ArcLight Press</span>
+    <p>&copy; 2026 Eric Tomchik. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

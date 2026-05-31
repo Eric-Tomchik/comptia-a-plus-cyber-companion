@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice Quiz — CompTIA A+ Cyber Study Guide Companion</title>
+  <meta name="description" content="Scenario-based practice questions with instant feedback and detailed explanations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../index.html" class="nav-brand"><span class="icon">🛡️</span> A+ Cyber Companion</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../chapters/index.html">Chapters</a>
+      <a href="../reference/index.html">Reference</a>
+      <a href="../labs/index.html">Labs</a>
+      <a href="../glossary/index.html">Glossary</a>
+      <a href="../flashcards/index.html">Flashcards</a>
+      <a href="index.html" class="active">Quiz</a>
+      <a href="../errata/index.html">Errata</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" style="padding:3rem 0 2rem">
+  <div class="container">
+    <div class="badge">Self-Assessment</div>
+    <h1>Practice Quiz</h1>
+    <p class="subtitle">Scenario-based questions modeled after the CompCert assessment format. Select an answer to see instant feedback.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:800px">
+    <div class="quiz-progress"><div class="quiz-progress-bar" style="width:0%"></div></div>
+    <div class="quiz-container"></div>
+    <div class="text-center mt-2">
+      <button class="btn btn-primary quiz-submit" style="margin-right:.5rem">📊 Show Score</button>
+      <button class="btn btn-outline quiz-reset">🔄 Reset Quiz</button>
+    </div>
+    <div class="quiz-score hidden mt-2">
+      <div class="score-num">0/0</div>
+      <p class="score-msg text-muted"></p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <span class="footer-brand">ArcLight Press</span>
+    <p>&copy; 2026 Eric Tomchik. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+window.QUIZ_DATA = [
+  {
+    question: "A SOC Tier 1 analyst receives an alert about repeated failed login attempts from a single external IP address targeting multiple user accounts. Which type of attack is MOST likely occurring?",
+    options: ["A) Phishing", "B) Password spraying", "C) SQL injection", "D) Man-in-the-middle"],
+    correct: 1,
+    explanation: "<strong>B) Password spraying.</strong> Password spraying involves trying a small number of commonly used passwords against many accounts simultaneously, which matches the pattern of failed logins across multiple accounts from one source. Brute force targets one account; phishing uses deception rather than direct login attempts."
+  },
+  {
+    question: "You are investigating a Linux server and need to find all files with the SUID bit set, which could allow privilege escalation. Which command should you use?",
+    options: ["A) ls -la /etc/passwd", "B) find / -perm -4000", "C) chmod 777 /tmp", "D) grep -r 'SUID' /var/log"],
+    correct: 1,
+    explanation: "<strong>B) find / -perm -4000.</strong> The <code>find / -perm -4000</code> command searches the entire filesystem for files with the SUID permission bit (4000) set. SUID files run with the file owner's privileges, making them a common target for privilege escalation attacks."
+  },
+  {
+    question: "During a security audit, you discover that a Windows server has Event ID 1102 in the Security log. What does this indicate?",
+    options: ["A) A user account was created", "B) A successful login occurred", "C) The audit log was cleared", "D) A new service was installed"],
+    correct: 2,
+    explanation: "<strong>C) The audit log was cleared.</strong> Event ID 1102 indicates the Security audit log was cleared. This is a critical finding because attackers often clear logs to cover their tracks. This event should always be investigated as potential evidence of compromise."
+  },
+  {
+    question: "An organization wants to ensure that if their primary data center fails, they can resume operations within 4 hours and lose no more than 1 hour of data. Which metrics define these requirements?",
+    options: ["A) SLE = 4 hours, ALE = 1 hour", "B) RTO = 4 hours, RPO = 1 hour", "C) RPO = 4 hours, RTO = 1 hour", "D) MTTR = 4 hours, MTTF = 1 hour"],
+    correct: 1,
+    explanation: "<strong>B) RTO = 4 hours, RPO = 1 hour.</strong> Recovery Time Objective (RTO) is the maximum time to restore service (4 hours). Recovery Point Objective (RPO) is the maximum acceptable data loss measured in time (1 hour), which determines backup frequency."
+  },
+  {
+    question: "You need to securely transfer files between two Linux servers. Which protocol should you use?",
+    options: ["A) FTP (port 21)", "B) Telnet (port 23)", "C) SFTP (port 22)", "D) HTTP (port 80)"],
+    correct: 2,
+    explanation: "<strong>C) SFTP (port 22).</strong> SFTP (SSH File Transfer Protocol) runs over SSH on port 22 and provides encrypted file transfer. FTP transmits data in cleartext, Telnet is for remote access (also cleartext), and HTTP is for web traffic — none of these are encrypted by default."
+  },
+  {
+    question: "A company's web application is found to be vulnerable to an attack where malicious database commands are submitted through a login form. What type of vulnerability is this?",
+    options: ["A) Cross-site scripting (XSS)", "B) SQL injection", "C) Buffer overflow", "D) DNS poisoning"],
+    correct: 1,
+    explanation: "<strong>B) SQL injection.</strong> SQL injection occurs when an attacker inserts malicious SQL code through application input fields (like a login form) to manipulate the backend database. This can lead to data theft, unauthorized access, or data destruction."
+  },
+  {
+    question: "Which NIST Cybersecurity Framework function involves developing and implementing the appropriate safeguards to ensure delivery of critical services?",
+    options: ["A) Identify", "B) Protect", "C) Detect", "D) Respond"],
+    correct: 1,
+    explanation: "<strong>B) Protect.</strong> The Protect function focuses on implementing safeguards for critical services. The five NIST CSF functions are: Identify (understand risk), Protect (implement safeguards), Detect (identify incidents), Respond (take action), and Recover (restore capabilities)."
+  },
+  {
+    question: "You discover a vulnerability in your organization's network with a CVSS score of 9.2. What severity level is this, and what action is required?",
+    options: ["A) High — schedule a patch within 30 days", "B) Critical — take immediate action", "C) Medium — prioritize for next maintenance window", "D) High — expedited remediation within a week"],
+    correct: 1,
+    explanation: "<strong>B) Critical — take immediate action.</strong> CVSS scores of 9.0–10.0 are rated Critical and require immediate remediation. High is 7.0–8.9, Medium is 4.0–6.9, and Low is 0.1–3.9."
+  },
+  {
+    question: "A security analyst receives an alert that a host on the network is making repeated DNS queries to a domain registered 3 hours ago. What type of threat indicator is this MOST likely?",
+    options: ["A) False positive from misconfigured software", "B) Indicator of Compromise — possible C2 communication", "C) Normal behavior for a new application deployment", "D) DNS cache poisoning attack"],
+    correct: 1,
+    explanation: "<strong>B) Indicator of Compromise — possible C2 communication.</strong> Newly registered domains (NRDs) being queried repeatedly is a classic IoC for Command and Control (C2) communication. Malware often uses recently registered domains to communicate with attacker infrastructure."
+  },
+  {
+    question: "Which of the following Bash commands would create a cron job that runs a security monitoring script every day at 2:00 AM?",
+    options: ["A) crontab -e → 0 2 * * * /opt/security/monitor.sh", "B) crontab -e → 2 0 * * * /opt/security/monitor.sh", "C) crontab -e → * * 2 * * /opt/security/monitor.sh", "D) crontab -e → 0 0 2 * * /opt/security/monitor.sh"],
+    correct: 0,
+    explanation: "<strong>A) 0 2 * * *</strong> — Cron syntax is: minute hour day-of-month month day-of-week. So <code>0 2 * * *</code> means 'at minute 0 of hour 2 (2:00 AM), every day, every month, every day of the week.'"
+  },
+  {
+    question: "Your organization's server was compromised. In what order should you collect forensic evidence according to the order of volatility?",
+    options: [
+      "A) Hard drive → RAM → CPU cache → network connections",
+      "B) CPU cache → RAM → network connections → hard drive",
+      "C) Network connections → RAM → hard drive → CPU cache",
+      "D) RAM → CPU cache → hard drive → network connections"
+    ],
+    correct: 1,
+    explanation: "<strong>B) CPU cache → RAM → network connections → hard drive.</strong> The order of volatility dictates collecting the most volatile (shortest-lived) evidence first: CPU registers/cache → RAM → network state → temporary files → disk → remote logs → physical config → archival media."
+  },
+  {
+    question: "A company wants to encrypt data at rest on employee laptops running Windows. Which built-in feature should they enable?",
+    options: ["A) Windows Firewall", "B) BitLocker", "C) Windows Defender", "D) User Account Control"],
+    correct: 1,
+    explanation: "<strong>B) BitLocker.</strong> BitLocker is Microsoft's built-in full-disk encryption feature available in Windows Professional and Enterprise editions. It encrypts the entire drive, protecting data at rest if the laptop is lost or stolen."
+  },
+  {
+    question: "Which security control type is a security camera that records activity in a server room?",
+    options: ["A) Preventive", "B) Detective", "C) Corrective", "D) Deterrent"],
+    correct: 1,
+    explanation: "<strong>B) Detective.</strong> A security camera that records activity is a detective control — it identifies and documents security events. If the camera were visible and intended to discourage bad behavior, it could also serve as a deterrent, but its primary function of recording makes it detective."
+  },
+  {
+    question: "You need to view all established TCP connections on a Windows system using PowerShell. Which command should you use?",
+    options: [
+      "A) Get-NetFirewallProfile",
+      "B) Get-NetTCPConnection -State Established",
+      "C) Get-EventLog -LogName Security",
+      "D) Get-Service | Where-Object {$_.Status -eq 'Running'}"
+    ],
+    correct: 1,
+    explanation: "<strong>B) Get-NetTCPConnection -State Established.</strong> This cmdlet displays all active TCP connections filtered to show only established connections, which is essential for identifying suspicious outbound connections during an investigation."
+  },
+  {
+    question: "An attacker sends an email that appears to be from the CEO, requesting an urgent wire transfer. This is an example of which attack type?",
+    options: ["A) DDoS attack", "B) Business Email Compromise (BEC)", "C) Brute force attack", "D) Supply chain attack"],
+    correct: 1,
+    explanation: "<strong>B) Business Email Compromise (BEC).</strong> BEC is a sophisticated social engineering attack where the attacker impersonates a trusted figure (like a CEO) to trick employees into transferring money or sharing sensitive data. It's one of the most financially damaging cybercrimes."
+  }
+];
+</script>
+<script src="../js/app.js"></script>
+</body>
+</html>

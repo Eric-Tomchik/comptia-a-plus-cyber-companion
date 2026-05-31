@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcards — CompTIA A+ Cyber Study Guide Companion</title>
+  <meta name="description" content="Interactive flashcards for key cybersecurity terms. Flip, shuffle, and drill yourself.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../index.html" class="nav-brand"><span class="icon">🛡️</span> A+ Cyber Companion</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../chapters/index.html">Chapters</a>
+      <a href="../reference/index.html">Reference</a>
+      <a href="../labs/index.html">Labs</a>
+      <a href="../glossary/index.html">Glossary</a>
+      <a href="index.html" class="active">Flashcards</a>
+      <a href="../quiz/index.html">Quiz</a>
+      <a href="../errata/index.html">Errata</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" style="padding:3rem 0 2rem">
+  <div class="container">
+    <div class="badge">Study Tool</div>
+    <h1>Flashcards</h1>
+    <p class="subtitle">Click to flip · Arrow keys to navigate · Space to flip</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="flashcard-container">
+      <div class="flashcard">
+        <div class="flashcard-face flashcard-front">
+          <p style="font-size:.8rem;color:var(--text-dim);margin-bottom:.5rem">TERM</p>
+          <h2 class="fc-term">Loading...</h2>
+          <p class="flashcard-hint">Click to reveal definition</p>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <p style="font-size:.8rem;color:var(--text-dim);margin-bottom:.5rem">DEFINITION</p>
+          <p class="fc-def">Loading...</p>
+        </div>
+      </div>
+      <div class="flashcard-controls">
+        <button class="btn btn-outline fc-prev" aria-label="Previous">← Prev</button>
+        <span class="flashcard-counter">1 / 40</span>
+        <button class="btn btn-outline fc-next" aria-label="Next">Next →</button>
+        <button class="btn btn-outline fc-shuffle" aria-label="Shuffle" style="margin-left:.5rem">🔀 Shuffle</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <span class="footer-brand">ArcLight Press</span>
+    <p>&copy; 2026 Eric Tomchik. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+window.FLASHCARD_DATA = [
+  {term:"CIA Triad", def:"The three pillars of information security: Confidentiality, Integrity, and Availability."},
+  {term:"SOC (Security Operations Center)", def:"A centralized team that monitors, detects, and responds to cybersecurity threats 24/7."},
+  {term:"SIEM", def:"Security Information and Event Management — collects, correlates, and analyzes logs from multiple sources for threat detection."},
+  {term:"IDS vs. IPS", def:"IDS passively monitors and alerts on suspicious activity. IPS monitors inline and can actively block detected threats."},
+  {term:"NIST CSF", def:"Five-function cybersecurity framework: Identify, Protect, Detect, Respond, Recover."},
+  {term:"Defense in Depth", def:"A security strategy using multiple layers of controls so failure of one layer doesn't compromise the whole system."},
+  {term:"CVSS", def:"Common Vulnerability Scoring System — standardized severity rating for vulnerabilities on a 0.0–10.0 scale."},
+  {term:"MFA", def:"Multi-Factor Authentication — requires two or more verification factors: something you know, have, or are."},
+  {term:"VPN", def:"Virtual Private Network — creates an encrypted tunnel for secure communication over untrusted networks."},
+  {term:"VLAN", def:"Virtual Local Area Network — a logical network segment on a managed switch for traffic separation."},
+  {term:"Phishing", def:"A social engineering attack using deceptive emails or websites to trick users into revealing sensitive information."},
+  {term:"Ransomware", def:"Malware that encrypts a victim's files and demands payment for the decryption key."},
+  {term:"Zero-Day", def:"A vulnerability unknown to the vendor with no available patch, making it particularly dangerous."},
+  {term:"APT", def:"Advanced Persistent Threat — a sophisticated, long-term cyberattack campaign by well-funded actors."},
+  {term:"Lateral Movement", def:"The technique attackers use to move through a network after initial compromise, accessing additional systems."},
+  {term:"IoC (Indicator of Compromise)", def:"Forensic evidence that suggests a system has been breached — malicious IPs, file hashes, unusual DNS queries, etc."},
+  {term:"MITRE ATT&CK", def:"A knowledge base of adversary tactics and techniques based on real-world observations, used for threat analysis."},
+  {term:"AES", def:"Advanced Encryption Standard — symmetric encryption supporting 128, 192, and 256-bit key sizes."},
+  {term:"Hashing", def:"A one-way function producing a fixed-size digest from any input. Used for integrity verification and password storage."},
+  {term:"TLS", def:"Transport Layer Security — a cryptographic protocol for secure network communication. Successor to SSL."},
+  {term:"SSH", def:"Secure Shell — encrypted protocol for remote system access on port 22."},
+  {term:"Active Directory", def:"Microsoft's directory service for managing users, computers, and policies in a Windows domain network."},
+  {term:"GPO", def:"Group Policy Object — a collection of security and configuration settings applied in an Active Directory domain."},
+  {term:"UAC", def:"User Account Control — a Windows security feature that prompts for confirmation before allowing system changes."},
+  {term:"SUID", def:"Set User ID — a Linux permission bit that allows a program to run with the file owner's privileges."},
+  {term:"SLE", def:"Single Loss Expectancy — expected monetary loss per incident. Formula: Asset Value × Exposure Factor."},
+  {term:"ALE", def:"Annualized Loss Expectancy — expected yearly cost of a risk. Formula: SLE × ARO."},
+  {term:"RPO", def:"Recovery Point Objective — the maximum acceptable data loss measured in time. Determines backup frequency."},
+  {term:"RTO", def:"Recovery Time Objective — the maximum acceptable time to restore service after a disruption."},
+  {term:"EDR", def:"Endpoint Detection and Response — advanced endpoint security with continuous monitoring and automated response."},
+  {term:"DLP", def:"Data Loss Prevention — technologies and policies preventing sensitive data from leaving an organization's control."},
+  {term:"NAT", def:"Network Address Translation — translates private IPs to public IPs, allowing multiple devices to share one public IP."},
+  {term:"DHCP", def:"Dynamic Host Configuration Protocol — automatically assigns IP addresses to devices on a network."},
+  {term:"DNS", def:"Domain Name System — translates human-readable domain names into IP addresses."},
+  {term:"ACL", def:"Access Control List — permissions attached to a resource specifying which users/groups can access it and what they can do."},
+  {term:"CompCert", def:"CompTIA Competency Certificate — earned by completing a structured course and assessments (not a proctored exam)."},
+  {term:"SQL Injection", def:"An attack inserting malicious SQL code through application input fields to manipulate databases."},
+  {term:"DDoS", def:"Distributed Denial of Service — overwhelms a target with traffic from multiple sources to disrupt availability."},
+  {term:"C2 (Command and Control)", def:"Infrastructure and communication channels attackers use to maintain control over compromised systems."},
+  {term:"Order of Volatility", def:"Evidence collection order from most to least volatile: CPU registers → RAM → network state → temp files → disk → logs → config → archives."}
+];
+</script>
+<script src="../js/app.js"></script>
+</body>
+</html>
