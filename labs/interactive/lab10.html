@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 10: Incident Response Simulation — CompTIA A+ Cyber Companion</title>
+  <meta name="description" content="Interactive lab: Incident Response Simulation. Detect, analyze, contain, and recover from a simulated security incident.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../../index.html" class="nav-brand"><span class="icon">🛡️</span> A+ Cyber Companion</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <div class="nav-links">
+      <a href="../../index.html">Home</a>
+      <a href="../../chapters/index.html">Chapters</a>
+      <a href="../../reference/index.html">Reference</a>
+      <a href="../index.html" class="active">Labs</a>
+      <a href="../../glossary/index.html">Glossary</a>
+      <a href="../../flashcards/index.html">Flashcards</a>
+      <a href="../../quiz/index.html">Quiz</a>
+      <a href="../../errata/index.html">Errata</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" style="padding:3rem 0 2rem">
+  <div class="container">
+    <div style="display:flex;gap:.5rem;margin-bottom:.5rem">
+      <div class="badge">Lab 10</div>
+      <div class="badge" style="background:rgba(16,185,129,.15);color:var(--green)">Chapter 24</div>
+      <div class="badge" style="background:rgba(245,158,11,.15);color:var(--orange)">🐧 Linux</div>
+    </div>
+    <h1>Incident Response Simulation</h1>
+    <p class="subtitle">Detect, analyze, contain, and recover from a simulated security incident.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="lab-progress">
+      <span class="lab-progress-text" id="progressText">0 / 8 tasks completed</span>
+      <div class="lab-progress-bar">
+        <div class="lab-progress-fill" id="progressFill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <h2 style="margin-bottom:1rem">📋 Tasks</h2>
+    <div id="taskList">
+      
+        <div class="terminal-task" data-task="0" id="task-0">
+          <span class="task-num">1</span>
+          <strong>Identify unexpected listening services</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">ss -tlnp</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="1" id="task-1">
+          <span class="task-num">2</span>
+          <strong>Investigate the suspicious process on port 4444</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">ps aux | grep nc</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="2" id="task-2">
+          <span class="task-num">3</span>
+          <strong>Check for suspicious processes sorted by CPU usage</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">ps aux | grep -v '\[' | sort -nrk 3 | head -10</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="3" id="task-3">
+          <span class="task-num">4</span>
+          <strong>Contain: Kill the suspicious processes</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">sudo kill -9 3847 3200</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="4" id="task-4">
+          <span class="task-num">5</span>
+          <strong>Block the attacker's network connections</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">sudo ufw deny from 10.0.0.55</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="5" id="task-5">
+          <span class="task-num">6</span>
+          <strong>Search for the malware artifacts</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">sudo find /tmp -name '.*' -type d</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="6" id="task-6">
+          <span class="task-num">7</span>
+          <strong>Remove the malware</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">sudo rm -rf /tmp/.hidden</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="7" id="task-7">
+          <span class="task-num">8</span>
+          <strong>Verify recovery — check that port 4444 is closed</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">ss -tlnp | grep 4444</code>
+          </div>
+        </div>
+    </div>
+
+    <h2 style="margin:2rem 0 1rem">💻 Interactive Terminal</h2>
+    <div class="terminal-wrap">
+      <div class="terminal-titlebar">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-title">bash — cyber-lab</span>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <div class="output info">Welcome to Lab 10: Incident Response Simulation</div>
+        <div class="output info">Type commands below to complete each task. Type 'help' for available commands.</div>
+        <div class="output">──────────────────────────────────────────────</div>
+      </div>
+      <div style="padding:.5rem 1.25rem;background:#0d1117;border-top:1px solid #21262d">
+        <div class="terminal-input-line">
+          <span class="terminal-prompt">student@cyber-lab:~$</span>
+          <input type="text" class="terminal-input" id="terminalInput" placeholder="Type a command..." autofocus autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+      <div class="terminal-hint">
+        <span class="hint-icon">💡</span>
+        <span id="hintText">Complete task 1: Identify unexpected listening services</span>
+        <button class="btn btn-outline" style="margin-left:auto;font-size:.75rem;padding:.25rem .5rem" id="hintBtn">Show Hint</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:2rem;border-color:var(--accent)">
+      <h3>🤔 Reflection</h3>
+      <p style="color:var(--text-muted)">Write a one-page incident report documenting the timeline, findings, and remediation steps.</p>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:2rem">
+      <a href="lab09.html" class="btn btn-outline">← Lab 9</a>
+      <a href="../index.html" class="btn btn-primary">All Labs</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <span class="footer-brand">ArcLight Press</span>
+    <p>&copy; 2026 Eric Tomchik. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../../js/app.js"></script>
+<script>
+(function() {
+  const tasks = [{"instruction": "Identify unexpected listening services", "command": "ss -tlnp", "output": "State   Recv-Q  Send-Q   Local Address:Port   Peer Address:Port  Process\nLISTEN  0       128      0.0.0.0:22           0.0.0.0:*          sshd\nLISTEN  0       511      0.0.0.0:80           0.0.0.0:*          apache2\nLISTEN  0       5        0.0.0.0:4444         0.0.0.0:*          nc\nLISTEN  0       151      127.0.0.1:3306       0.0.0.0:*          mysqld", "hint": "Use 'ss -tlnp' to show listening TCP ports \u2014 look for unexpected services"}, {"instruction": "Investigate the suspicious process on port 4444", "command": "ps aux | grep nc", "output": "root      3847  0.0  0.1  8536  1024 ?   Ss   09:15   0:00 nc -lvp 4444\nstudent   3901  0.0  0.0  6420   724 pts/0 S+ 11:05   0:00 grep nc", "hint": "Use 'ps aux | grep nc' to find the process"}, {"instruction": "Check for suspicious processes sorted by CPU usage", "command": "ps aux | grep -v '\\[' | sort -nrk 3 | head -10", "output": "USER      PID %CPU %MEM    VSZ   RSS TTY  STAT START   TIME COMMAND\nroot     3847  0.0  0.1   8536  1024 ?    Ss   09:15   0:00 nc -lvp 4444\nwww-data 3200 12.5  2.3  45236 23552 ?    S    09:20   1:23 /tmp/.hidden/cryptominer\nroot     2451  0.3  0.5  12768  5120 ?    Ss   08:00   0:45 /usr/sbin/sshd\napache   2890  0.1  1.2  98432 12288 ?    S    08:30   0:12 /usr/sbin/apache2", "hint": "Sort by CPU column (3rd) in reverse numeric order"}, {"instruction": "Contain: Kill the suspicious processes", "command": "sudo kill -9 3847 3200", "output": "[1]   Killed                  nc -lvp 4444\n[2]   Killed                  /tmp/.hidden/cryptominer", "hint": "Use 'sudo kill -9 <PID1> <PID2>'"}, {"instruction": "Block the attacker's network connections", "command": "sudo ufw deny from 10.0.0.55", "output": "Rule added", "hint": "Use 'sudo ufw deny from <attacker_ip>'"}, {"instruction": "Search for the malware artifacts", "command": "sudo find /tmp -name '.*' -type d", "output": "/tmp/.hidden", "hint": "Hidden files/dirs start with '.' \u2014 use find to locate them"}, {"instruction": "Remove the malware", "command": "sudo rm -rf /tmp/.hidden", "output": "Malware directory removed.", "hint": "Use 'sudo rm -rf' to remove the directory"}, {"instruction": "Verify recovery \u2014 check that port 4444 is closed", "command": "ss -tlnp | grep 4444", "output": "(no output \u2014 port is closed)", "hint": "Grep for the suspicious port \u2014 no output means it's closed"}];
+  let currentTask = 0;
+  let completed = 0;
+  const totalTasks = tasks.length;
+  const terminal = document.getElementById('terminalBody');
+  const input = document.getElementById('terminalInput');
+  const hintText = document.getElementById('hintText');
+  const hintBtn = document.getElementById('hintBtn');
+  const progressText = document.getElementById('progressText');
+  const progressFill = document.getElementById('progressFill');
+  const prompt = 'student@cyber-lab:~$';
+
+  function addLine(text, cls) {
+    const div = document.createElement('div');
+    div.className = cls || 'output';
+    div.textContent = text;
+    terminal.appendChild(div);
+    terminal.scrollTop = terminal.scrollHeight;
+  }
+
+  function addPromptLine(cmd) {
+    const div = document.createElement('div');
+    div.innerHTML = '<span style="color:#3fb950">' + prompt + '</span> ' + escapeHtml(cmd);
+    terminal.appendChild(div);
+  }
+
+  function escapeHtml(text) {
+    const d = document.createElement('div');
+    d.textContent = text;
+    return d.innerHTML;
+  }
+
+  function normalizeCmd(cmd) {
+    return cmd.trim().toLowerCase().replace(/\s+/g, ' ');
+  }
+
+  function updateProgress() {
+    progressText.textContent = completed + ' / ' + totalTasks + ' tasks completed';
+    progressFill.style.width = (completed / totalTasks * 100) + '%';
+  }
+
+  function completeTask(idx) {
+    const taskEl = document.getElementById('task-' + idx);
+    if (taskEl) {
+      taskEl.classList.add('completed');
+    }
+    completed++;
+    updateProgress();
+    
+    if (completed >= totalTasks) {
+      addLine('');
+      addLine('🎉 Congratulations! All tasks completed!', 'success');
+      addLine('Review the Reflection question below to deepen your understanding.', 'info');
+      hintText.textContent = '✅ Lab complete! Review the reflection question below.';
+      hintBtn.style.display = 'none';
+    } else {
+      currentTask = idx + 1;
+      hintText.textContent = 'Complete task ' + (currentTask + 1) + ': ' + tasks[currentTask].instruction;
+      hintBtn.textContent = 'Show Hint';
+    }
+  }
+
+  // Check if command matches (flexible matching)
+  function matchesCommand(typed, expected) {
+    const t = normalizeCmd(typed);
+    const e = normalizeCmd(expected.split('\n')[0]);
+    
+    // Exact match
+    if (t === e) return true;
+    
+    // Match without sudo prefix variation
+    const tNoSudo = t.replace(/^sudo\s+/, '');
+    const eNoSudo = e.replace(/^sudo\s+/, '');
+    if (tNoSudo === eNoSudo) return true;
+    
+    // Match core command (ignore minor flag order differences)
+    const tParts = t.split(/\s+/).sort();
+    const eParts = e.split(/\s+/).sort();
+    if (tParts.join(' ') === eParts.join(' ')) return true;
+    
+    return false;
+  }
+
+  input.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter') return;
+    const cmd = input.value.trim();
+    if (!cmd) return;
+    
+    input.value = '';
+    addPromptLine(cmd);
+
+    // Built-in commands
+    if (cmd.toLowerCase() === 'help') {
+      addLine('Available commands:', 'info');
+      addLine('  help     - Show this help message', 'output');
+      addLine('  hint     - Show hint for current task', 'output');
+      addLine('  clear    - Clear terminal', 'output');
+      addLine('  skip     - Skip current task', 'output');
+      addLine('  reset    - Reset lab', 'output');
+      addLine('');
+      return;
+    }
+    
+    if (cmd.toLowerCase() === 'clear') {
+      terminal.innerHTML = '';
+      return;
+    }
+    
+    if (cmd.toLowerCase() === 'hint') {
+      if (currentTask < totalTasks) {
+        addLine('💡 Hint: ' + tasks[currentTask].hint, 'warning');
+      }
+      return;
+    }
+    
+    if (cmd.toLowerCase() === 'skip') {
+      if (currentTask < totalTasks) {
+        addLine('⏭️ Skipped task ' + (currentTask + 1), 'warning');
+        completeTask(currentTask);
+      }
+      return;
+    }
+    
+    if (cmd.toLowerCase() === 'reset') {
+      location.reload();
+      return;
+    }
+
+    // Check against current task
+    if (currentTask < totalTasks) {
+      const task = tasks[currentTask];
+      if (matchesCommand(cmd, task.command)) {
+        // Correct command
+        if (task.output) {
+          task.output.split('\n').forEach(line => {
+            addLine(line, 'success');
+          });
+        }
+        addLine('');
+        addLine('✅ Task ' + (currentTask + 1) + ' completed!', 'success');
+        addLine('');
+        completeTask(currentTask);
+      } else {
+        // Check if it matches any OTHER task (not just current)
+        let found = false;
+        for (let i = currentTask + 1; i < totalTasks; i++) {
+          if (matchesCommand(cmd, tasks[i].command)) {
+            addLine('⚠️ That command is for task ' + (i + 1) + '. Complete task ' + (currentTask + 1) + ' first.', 'warning');
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          addLine('❌ Command not recognized for the current task.', 'error');
+          addLine('💡 Type "hint" for a clue, or "help" for commands.', 'info');
+        }
+      }
+    } else {
+      addLine('All tasks are complete! Type "reset" to start over.', 'info');
+    }
+  });
+
+  hintBtn.addEventListener('click', function() {
+    if (currentTask < totalTasks) {
+      addLine('💡 Hint: ' + tasks[currentTask].hint, 'warning');
+      terminal.scrollTop = terminal.scrollHeight;
+    }
+  });
+
+  // Focus input on terminal click
+  document.querySelector('.terminal-wrap').addEventListener('click', function() {
+    input.focus();
+  });
+})();
+</script>
+</body>
+</html>

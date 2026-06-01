@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 8: Bash Security Audit Script — CompTIA A+ Cyber Companion</title>
+  <meta name="description" content="Interactive lab: Bash Security Audit Script. Write a Bash script that performs a basic security audit of a Linux system.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../../index.html" class="nav-brand"><span class="icon">🛡️</span> A+ Cyber Companion</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <div class="nav-links">
+      <a href="../../index.html">Home</a>
+      <a href="../../chapters/index.html">Chapters</a>
+      <a href="../../reference/index.html">Reference</a>
+      <a href="../index.html" class="active">Labs</a>
+      <a href="../../glossary/index.html">Glossary</a>
+      <a href="../../flashcards/index.html">Flashcards</a>
+      <a href="../../quiz/index.html">Quiz</a>
+      <a href="../../errata/index.html">Errata</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" style="padding:3rem 0 2rem">
+  <div class="container">
+    <div style="display:flex;gap:.5rem;margin-bottom:.5rem">
+      <div class="badge">Lab 8</div>
+      <div class="badge" style="background:rgba(16,185,129,.15);color:var(--green)">Chapter 15</div>
+      <div class="badge" style="background:rgba(245,158,11,.15);color:var(--orange)">🐧 Linux</div>
+    </div>
+    <h1>Bash Security Audit Script</h1>
+    <p class="subtitle">Write a Bash script that performs a basic security audit of a Linux system.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="lab-progress">
+      <span class="lab-progress-text" id="progressText">0 / 4 tasks completed</span>
+      <div class="lab-progress-bar">
+        <div class="lab-progress-fill" id="progressFill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <h2 style="margin-bottom:1rem">📋 Tasks</h2>
+    <div id="taskList">
+      
+        <div class="terminal-task" data-task="0" id="task-0">
+          <span class="task-num">1</span>
+          <strong>Create the audit script file</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">cat > audit.sh << 'EOF'</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="1" id="task-1">
+          <span class="task-num">2</span>
+          <strong>Make the script executable</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">chmod +x audit.sh</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="2" id="task-2">
+          <span class="task-num">3</span>
+          <strong>Run the security audit</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">sudo ./audit.sh</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="3" id="task-3">
+          <span class="task-num">4</span>
+          <strong>Save the report to a dated file</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">sudo ./audit.sh > audit_report_$(date +%F).txt</code>
+          </div>
+        </div>
+    </div>
+
+    <h2 style="margin:2rem 0 1rem">💻 Interactive Terminal</h2>
+    <div class="terminal-wrap">
+      <div class="terminal-titlebar">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-title">bash — cyber-lab</span>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <div class="output info">Welcome to Lab 8: Bash Security Audit Script</div>
+        <div class="output info">Type commands below to complete each task. Type 'help' for available commands.</div>
+        <div class="output">──────────────────────────────────────────────</div>
+      </div>
+      <div style="padding:.5rem 1.25rem;background:#0d1117;border-top:1px solid #21262d">
+        <div class="terminal-input-line">
+          <span class="terminal-prompt">student@cyber-lab:~$</span>
+          <input type="text" class="terminal-input" id="terminalInput" placeholder="Type a command..." autofocus autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+      <div class="terminal-hint">
+        <span class="hint-icon">💡</span>
+        <span id="hintText">Complete task 1: Create the audit script file</span>
+        <button class="btn btn-outline" style="margin-left:auto;font-size:.75rem;padding:.25rem .5rem" id="hintBtn">Show Hint</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:2rem;border-color:var(--accent)">
+      <h3>🤔 Reflection</h3>
+      <p style="color:var(--text-muted)">What additional checks would you add to make this a comprehensive audit tool?</p>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:2rem">
+      <a href="lab07.html" class="btn btn-outline">← Lab 7</a>
+      <a href="lab09.html" class="btn btn-primary">Lab 9 →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <span class="footer-brand">ArcLight Press</span>
+    <p>&copy; 2026 Eric Tomchik. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../../js/app.js"></script>
+<script>
+(function() {
+  const tasks = [{"instruction": "Create the audit script file", "command": "cat > audit.sh << 'EOF'\n#!/bin/bash\necho \"=== Security Audit Report ===\"\necho \"Date: $(date)\"\necho \"Hostname: $(hostname)\"\necho \"\"\necho \"--- Open Ports ---\"\nss -tlnp\necho \"\"\necho \"--- Users with Login Shell ---\"\ngrep -v '/nologin\\|/false' /etc/passwd\necho \"\"\necho \"--- SUID Files ---\"\nfind / -perm -4000 -type f 2>/dev/null\necho \"\"\necho \"--- Failed SSH Logins (Last 24h) ---\"\ngrep 'Failed password' /var/log/auth.log | tail -20\nEOF", "output": "", "hint": "Use 'cat > audit.sh << EOF' to create the script"}, {"instruction": "Make the script executable", "command": "chmod +x audit.sh", "output": "", "hint": "Use 'chmod +x <script>'"}, {"instruction": "Run the security audit", "command": "sudo ./audit.sh", "output": "=== Security Audit Report ===\nDate: Wed Jan 15 10:50:00 UTC 2026\nHostname: cyber-lab\n\n--- Open Ports ---\nState  Recv-Q  Send-Q   Local Address:Port   Peer Address:Port  Process\nLISTEN 0       128      0.0.0.0:22           0.0.0.0:*          sshd\nLISTEN 0       511      0.0.0.0:80           0.0.0.0:*          apache2\nLISTEN 0       151      127.0.0.1:3306       0.0.0.0:*          mysqld\n\n--- Users with Login Shell ---\nroot:x:0:0:root:/root:/bin/bash\nstudent:x:1000:1000::/home/student:/bin/bash\nlabadmin:x:1001:1001::/home/labadmin:/bin/bash\n\n--- SUID Files ---\n/usr/bin/sudo\n/usr/bin/passwd\n/usr/bin/chsh\n/usr/bin/newgrp\n/usr/bin/pkexec\n\n--- Failed SSH Logins (Last 24h) ---\nJan 15 10:31:15 cyber-lab sshd[2489]: Failed password for root from 10.0.0.55\nJan 15 10:31:16 cyber-lab sshd[2489]: Failed password for root from 10.0.0.55\nJan 15 10:33:45 cyber-lab sshd[2510]: Failed password for admin from 10.0.0.55", "hint": "Use 'sudo ./audit.sh' to run with privileges"}, {"instruction": "Save the report to a dated file", "command": "sudo ./audit.sh > audit_report_$(date +%F).txt", "output": "Report saved to audit_report_2026-01-15.txt", "hint": "Redirect output with > to save to file"}];
+  let currentTask = 0;
+  let completed = 0;
+  const totalTasks = tasks.length;
+  const terminal = document.getElementById('terminalBody');
+  const input = document.getElementById('terminalInput');
+  const hintText = document.getElementById('hintText');
+  const hintBtn = document.getElementById('hintBtn');
+  const progressText = document.getElementById('progressText');
+  const progressFill = document.getElementById('progressFill');
+  const prompt = 'student@cyber-lab:~$';
+
+  function addLine(text, cls) {
+    const div = document.createElement('div');
+    div.className = cls || 'output';
+    div.textContent = text;
+    terminal.appendChild(div);
+    terminal.scrollTop = terminal.scrollHeight;
+  }
+
+  function addPromptLine(cmd) {
+    const div = document.createElement('div');
+    div.innerHTML = '<span style="color:#3fb950">' + prompt + '</span> ' + escapeHtml(cmd);
+    terminal.appendChild(div);
+  }
+
+  function escapeHtml(text) {
+    const d = document.createElement('div');
+    d.textContent = text;
+    return d.innerHTML;
+  }
+
+  function normalizeCmd(cmd) {
+    return cmd.trim().toLowerCase().replace(/\s+/g, ' ');
+  }
+
+  function updateProgress() {
+    progressText.textContent = completed + ' / ' + totalTasks + ' tasks completed';
+    progressFill.style.width = (completed / totalTasks * 100) + '%';
+  }
+
+  function completeTask(idx) {
+    const taskEl = document.getElementById('task-' + idx);
+    if (taskEl) {
+      taskEl.classList.add('completed');
+    }
+    completed++;
+    updateProgress();
+    
+    if (completed >= totalTasks) {
+      addLine('');
+      addLine('🎉 Congratulations! All tasks completed!', 'success');
+      addLine('Review the Reflection question below to deepen your understanding.', 'info');
+      hintText.textContent = '✅ Lab complete! Review the reflection question below.';
+      hintBtn.style.display = 'none';
+    } else {
+      currentTask = idx + 1;
+      hintText.textContent = 'Complete task ' + (currentTask + 1) + ': ' + tasks[currentTask].instruction;
+      hintBtn.textContent = 'Show Hint';
+    }
+  }
+
+  // Check if command matches (flexible matching)
+  function matchesCommand(typed, expected) {
+    const t = normalizeCmd(typed);
+    const e = normalizeCmd(expected.split('\n')[0]);
+    
+    // Exact match
+    if (t === e) return true;
+    
+    // Match without sudo prefix variation
+    const tNoSudo = t.replace(/^sudo\s+/, '');
+    const eNoSudo = e.replace(/^sudo\s+/, '');
+    if (tNoSudo === eNoSudo) return true;
+    
+    // Match core command (ignore minor flag order differences)
+    const tParts = t.split(/\s+/).sort();
+    const eParts = e.split(/\s+/).sort();
+    if (tParts.join(' ') === eParts.join(' ')) return true;
+    
+    return false;
+  }
+
+  input.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter') return;
+    const cmd = input.value.trim();
+    if (!cmd) return;
+    
+    input.value = '';
+    addPromptLine(cmd);
+
+    // Built-in commands
+    if (cmd.toLowerCase() === 'help') {
+      addLine('Available commands:', 'info');
+      addLine('  help     - Show this help message', 'output');
+      addLine('  hint     - Show hint for current task', 'output');
+      addLine('  clear    - Clear terminal', 'output');
+      addLine('  skip     - Skip current task', 'output');
+      addLine('  reset    - Reset lab', 'output');
+      addLine('');
+      return;
+    }
+    
+    if (cmd.toLowerCase() === 'clear') {
+      terminal.innerHTML = '';
+      return;
+    }
+    
+    if (cmd.toLowerCase() === 'hint') {
+      if (currentTask < totalTasks) {
+        addLine('💡 Hint: ' + tasks[currentTask].hint, 'warning');
+      }
+      return;
+    }
+    
+    if (cmd.toLowerCase() === 'skip') {
+      if (currentTask < totalTasks) {
+        addLine('⏭️ Skipped task ' + (currentTask + 1), 'warning');
+        completeTask(currentTask);
+      }
+      return;
+    }
+    
+    if (cmd.toLowerCase() === 'reset') {
+      location.reload();
+      return;
+    }
+
+    // Check against current task
+    if (currentTask < totalTasks) {
+      const task = tasks[currentTask];
+      if (matchesCommand(cmd, task.command)) {
+        // Correct command
+        if (task.output) {
+          task.output.split('\n').forEach(line => {
+            addLine(line, 'success');
+          });
+        }
+        addLine('');
+        addLine('✅ Task ' + (currentTask + 1) + ' completed!', 'success');
+        addLine('');
+        completeTask(currentTask);
+      } else {
+        // Check if it matches any OTHER task (not just current)
+        let found = false;
+        for (let i = currentTask + 1; i < totalTasks; i++) {
+          if (matchesCommand(cmd, tasks[i].command)) {
+            addLine('⚠️ That command is for task ' + (i + 1) + '. Complete task ' + (currentTask + 1) + ' first.', 'warning');
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          addLine('❌ Command not recognized for the current task.', 'error');
+          addLine('💡 Type "hint" for a clue, or "help" for commands.', 'info');
+        }
+      }
+    } else {
+      addLine('All tasks are complete! Type "reset" to start over.', 'info');
+    }
+  });
+
+  hintBtn.addEventListener('click', function() {
+    if (currentTask < totalTasks) {
+      addLine('💡 Hint: ' + tasks[currentTask].hint, 'warning');
+      terminal.scrollTop = terminal.scrollHeight;
+    }
+  });
+
+  // Focus input on terminal click
+  document.querySelector('.terminal-wrap').addEventListener('click', function() {
+    input.focus();
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 10: Switches, Routers, and Firewalls — CompTIA A+ Cyber Companion</title>
+  <meta name="description" content="Study resources for Chapter 10: Switches, Routers, and Firewalls — Learning objectives, key topics, terms, and assessment tips.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../index.html" class="nav-brand"><span class="icon">🛡️</span> A+ Cyber Companion</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="index.html" class="active">Chapters</a>
+      <a href="../reference/index.html">Reference</a>
+      <a href="../labs/index.html">Labs</a>
+      <a href="../glossary/index.html">Glossary</a>
+      <a href="../flashcards/index.html">Flashcards</a>
+      <a href="../quiz/index.html">Quiz</a>
+      <a href="../errata/index.html">Errata</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" style="padding:3rem 0 2rem">
+  <div class="container">
+    <div class="badge">Part IV — Enterprise Campus Networks</div>
+    <h1 style="font-size:1.8rem">Chapter 10</h1>
+    <p class="subtitle" style="font-size:1.2rem;max-width:700px">Switches, Routers, and Firewalls</p>
+    <div style="margin-top:1rem"><span class="tag tag-cyan">Domain 4</span> <span class="tag tag-green" style="margin-left:.25rem">Lab 5</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:800px">
+
+
+    <div class="card fade-in" style="margin-bottom:2rem">
+      <h2 style="font-size:1.1rem;margin-bottom:1rem">📖 Key Topics Covered</h2>
+      <ul class="sec-list">
+          <li><span class="sec-bullet">▸</span> Switches, Routers, and</li>
+          <li><span class="sec-bullet">▸</span> Network Switches</li>
+          <li><span class="sec-bullet">▸</span> Switch Types</li>
+          <li><span class="sec-bullet">▸</span> USE CASE</li>
+          <li><span class="sec-bullet">▸</span> Full configuration via CLI/GUI</li>
+          <li><span class="sec-bullet">▸</span> Enterprise networks, security‐conscious</li>
+          <li><span class="sec-bullet">▸</span> VLANs (Virtual Local Area Networks)</li>
+          <li><span class="sec-bullet">▸</span> Why VLANs Matter for Security</li>
+          <li><span class="sec-bullet">▸</span> Switch&gt; enable</li>
+          <li><span class="sec-bullet">▸</span> Switch# configure terminal</li>
+          <li><span class="sec-bullet">▸</span> Switch(config)# vlan 10</li>
+          <li><span class="sec-bullet">▸</span> Switch(config-vlan)# name HR_Department</li>
+          <li><span class="sec-bullet">▸</span> Switch(config-vlan)# exit</li>
+          <li><span class="sec-bullet">▸</span> Switch(config)# vlan 20</li>
+          <li><span class="sec-bullet">▸</span> Switch(config-vlan)# name Engineering</li>
+      </ul>
+    </div>
+
+    <div class="card fade-in" style="margin-bottom:2rem">
+      <h2 style="font-size:1.1rem;margin-bottom:1rem">🔑 Key Terms</h2>
+      <div class="term-cloud">
+        <span class="term-tag">Compliance</span>
+        <span class="term-tag">Containment</span>
+        <span class="term-tag">DMZ (Demilitarized Zone)</span>
+        <span class="term-tag">DMZ (for public services)</span>
+        <span class="term-tag">DMZ (semi‐trusted)</span>
+        <span class="term-tag">Firewalls
+
+Firewalls</span>
+        <span class="term-tag">MAC (Media   Access   Control)</span>
+        <span class="term-tag">Network Switches
+
+Switches</span>
+        <span class="term-tag">Performance</span>
+        <span class="term-tag">Segmentation</span>
+      </div>
+      <p style="margin-top:1rem;font-size:.8rem;color:var(--text-dim)">See the full definitions in the <a href="../glossary/index.html">Glossary</a> and test yourself with <a href="../flashcards/index.html">Flashcards</a>.</p>
+    </div>
+
+    <div class="fade-in" style="margin-bottom:2rem">
+      <h2 style="font-size:1.1rem;margin-bottom:1rem">Assessment Tips</h2>
+      <div class="tip-box">
+        <span class="tip-label">💡 Assessment Tip</span>
+        <p>Understand the DMZ concept: public‐facing servers go in the DMZ, not on the internal network. The firewall has three zones: External (untrusted internet), DMZ (semi‐trusted), and Internal (trusted). Traffic rules should allow internet → DMZ (for publ</p>
+      </div>
+    </div>
+
+    <div class="card fade-in" style="border-color:var(--green);margin-bottom:2rem">
+      <h2 style="font-size:1.1rem;margin-bottom:.5rem">🧪 Hands-On Lab</h2>
+      <p>This chapter includes <strong>Lab 5</strong> in Appendix E. <a href="../labs/index.html">View lab setup guide →</a></p>
+    </div>
+
+    <!-- Chapter navigation -->
+    <div class="ch-nav fade-in">
+      <a href="ch09.html" class="btn btn-outline">← Chapter 9</a>
+      <a href="index.html" class="btn btn-outline">All Chapters</a>
+      <a href="ch11.html" class="btn btn-outline">Chapter 11 →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <span class="footer-brand">ArcLight Press</span>
+    <p>&copy; 2026 Eric Tomchik. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

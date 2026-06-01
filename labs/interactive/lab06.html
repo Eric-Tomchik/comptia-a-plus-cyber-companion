@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 6: Snort IDS Configuration — CompTIA A+ Cyber Companion</title>
+  <meta name="description" content="Interactive lab: Snort IDS Configuration. Install and configure Snort in IDS mode to detect suspicious network activity.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../../index.html" class="nav-brand"><span class="icon">🛡️</span> A+ Cyber Companion</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <div class="nav-links">
+      <a href="../../index.html">Home</a>
+      <a href="../../chapters/index.html">Chapters</a>
+      <a href="../../reference/index.html">Reference</a>
+      <a href="../index.html" class="active">Labs</a>
+      <a href="../../glossary/index.html">Glossary</a>
+      <a href="../../flashcards/index.html">Flashcards</a>
+      <a href="../../quiz/index.html">Quiz</a>
+      <a href="../../errata/index.html">Errata</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" style="padding:3rem 0 2rem">
+  <div class="container">
+    <div style="display:flex;gap:.5rem;margin-bottom:.5rem">
+      <div class="badge">Lab 6</div>
+      <div class="badge" style="background:rgba(16,185,129,.15);color:var(--green)">Chapter 12</div>
+      <div class="badge" style="background:rgba(245,158,11,.15);color:var(--orange)">🐧 Linux</div>
+    </div>
+    <h1>Snort IDS Configuration</h1>
+    <p class="subtitle">Install and configure Snort in IDS mode to detect suspicious network activity.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="lab-progress">
+      <span class="lab-progress-text" id="progressText">0 / 5 tasks completed</span>
+      <div class="lab-progress-bar">
+        <div class="lab-progress-fill" id="progressFill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <h2 style="margin-bottom:1rem">📋 Tasks</h2>
+    <div id="taskList">
+      
+        <div class="terminal-task" data-task="0" id="task-0">
+          <span class="task-num">1</span>
+          <strong>Install Snort</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">sudo apt install snort -y</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="1" id="task-1">
+          <span class="task-num">2</span>
+          <strong>View the default Snort configuration (non-comment lines)</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">cat /etc/snort/snort.conf | grep -v '^#' | grep -v '^$' | head -20</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="2" id="task-2">
+          <span class="task-num">3</span>
+          <strong>Create a custom Snort rule to detect ICMP pings</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">echo 'alert icmp any any -> any any (msg:"ICMP Ping Detected"; sid:1000001; rev:1;)' | sudo tee /etc/snort/rules/local.rules</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="3" id="task-3">
+          <span class="task-num">4</span>
+          <strong>Test the Snort configuration</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">sudo snort -T -c /etc/snort/snort.conf</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="4" id="task-4">
+          <span class="task-num">5</span>
+          <strong>Run Snort in IDS mode (simulated)</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">sudo snort -A console -q -c /etc/snort/snort.conf -i eth0</code>
+          </div>
+        </div>
+    </div>
+
+    <h2 style="margin:2rem 0 1rem">💻 Interactive Terminal</h2>
+    <div class="terminal-wrap">
+      <div class="terminal-titlebar">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-title">bash — cyber-lab</span>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <div class="output info">Welcome to Lab 6: Snort IDS Configuration</div>
+        <div class="output info">Type commands below to complete each task. Type 'help' for available commands.</div>
+        <div class="output">──────────────────────────────────────────────</div>
+      </div>
+      <div style="padding:.5rem 1.25rem;background:#0d1117;border-top:1px solid #21262d">
+        <div class="terminal-input-line">
+          <span class="terminal-prompt">student@cyber-lab:~$</span>
+          <input type="text" class="terminal-input" id="terminalInput" placeholder="Type a command..." autofocus autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+      <div class="terminal-hint">
+        <span class="hint-icon">💡</span>
+        <span id="hintText">Complete task 1: Install Snort</span>
+        <button class="btn btn-outline" style="margin-left:auto;font-size:.75rem;padding:.25rem .5rem" id="hintBtn">Show Hint</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:2rem;border-color:var(--accent)">
+      <h3>🤔 Reflection</h3>
+      <p style="color:var(--text-muted)">How would you write a rule to detect SSH brute-force attempts?</p>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:2rem">
+      <a href="lab05.html" class="btn btn-outline">← Lab 5</a>
+      <a href="lab07.html" class="btn btn-primary">Lab 7 →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <span class="footer-brand">ArcLight Press</span>
+    <p>&copy; 2026 Eric Tomchik. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../../js/app.js"></script>
+<script>
+(function() {
+  const tasks = [{"instruction": "Install Snort", "command": "sudo apt install snort -y", "output": "Reading package lists... Done\nBuilding dependency tree... Done\nThe following NEW packages will be installed:\n  snort\n0 upgraded, 1 newly installed\nSetting up snort (2.9.20-0ubuntu1) ...\nSnort installed successfully.", "hint": "Use 'sudo apt install snort -y'"}, {"instruction": "View the default Snort configuration (non-comment lines)", "command": "cat /etc/snort/snort.conf | grep -v '^#' | grep -v '^$' | head -20", "output": "var RULE_PATH /etc/snort/rules\nvar HOME_NET 192.168.1.0/24\nvar EXTERNAL_NET !$HOME_NET\ninclude $RULE_PATH/local.rules\noutput alert_fast: stdout", "hint": "Pipe through grep -v to filter comment lines"}, {"instruction": "Create a custom Snort rule to detect ICMP pings", "command": "echo 'alert icmp any any -> any any (msg:\"ICMP Ping Detected\"; sid:1000001; rev:1;)' | sudo tee /etc/snort/rules/local.rules", "output": "alert icmp any any -> any any (msg:\"ICMP Ping Detected\"; sid:1000001; rev:1;)", "hint": "Use echo with sudo tee to write the rule file"}, {"instruction": "Test the Snort configuration", "command": "sudo snort -T -c /etc/snort/snort.conf", "output": "Running in Test mode\n\n        --== Initializing Snort ==--\nInitializing Output Plugins!\nInitializing Preprocessors!\nInitializing Plug-ins!\n\n        --== Initialization Complete ==--\n\nSnort successfully validated the configuration!\nSnort exiting", "hint": "Use 'sudo snort -T -c /etc/snort/snort.conf'"}, {"instruction": "Run Snort in IDS mode (simulated)", "command": "sudo snort -A console -q -c /etc/snort/snort.conf -i eth0", "output": "Commencing packet processing (listening on eth0)\n01/15-10:45:23.123456  [**] [1:1000001:1] ICMP Ping Detected [**] {ICMP} 192.168.1.200 -> 192.168.1.50\n01/15-10:45:23.234567  [**] [1:1000001:1] ICMP Ping Detected [**] {ICMP} 192.168.1.200 -> 192.168.1.50\n^C*** Caught Int-Signal\n2 alerts generated.", "hint": "Use 'sudo snort -A console -q -c <conf> -i <interface>'"}];
+  let currentTask = 0;
+  let completed = 0;
+  const totalTasks = tasks.length;
+  const terminal = document.getElementById('terminalBody');
+  const input = document.getElementById('terminalInput');
+  const hintText = document.getElementById('hintText');
+  const hintBtn = document.getElementById('hintBtn');
+  const progressText = document.getElementById('progressText');
+  const progressFill = document.getElementById('progressFill');
+  const prompt = 'student@cyber-lab:~$';
+
+  function addLine(text, cls) {
+    const div = document.createElement('div');
+    div.className = cls || 'output';
+    div.textContent = text;
+    terminal.appendChild(div);
+    terminal.scrollTop = terminal.scrollHeight;
+  }
+
+  function addPromptLine(cmd) {
+    const div = document.createElement('div');
+    div.innerHTML = '<span style="color:#3fb950">' + prompt + '</span> ' + escapeHtml(cmd);
+    terminal.appendChild(div);
+  }
+
+  function escapeHtml(text) {
+    const d = document.createElement('div');
+    d.textContent = text;
+    return d.innerHTML;
+  }
+
+  function normalizeCmd(cmd) {
+    return cmd.trim().toLowerCase().replace(/\s+/g, ' ');
+  }
+
+  function updateProgress() {
+    progressText.textContent = completed + ' / ' + totalTasks + ' tasks completed';
+    progressFill.style.width = (completed / totalTasks * 100) + '%';
+  }
+
+  function completeTask(idx) {
+    const taskEl = document.getElementById('task-' + idx);
+    if (taskEl) {
+      taskEl.classList.add('completed');
+    }
+    completed++;
+    updateProgress();
+    
+    if (completed >= totalTasks) {
+      addLine('');
+      addLine('🎉 Congratulations! All tasks completed!', 'success');
+      addLine('Review the Reflection question below to deepen your understanding.', 'info');
+      hintText.textContent = '✅ Lab complete! Review the reflection question below.';
+      hintBtn.style.display = 'none';
+    } else {
+      currentTask = idx + 1;
+      hintText.textContent = 'Complete task ' + (currentTask + 1) + ': ' + tasks[currentTask].instruction;
+      hintBtn.textContent = 'Show Hint';
+    }
+  }
+
+  // Check if command matches (flexible matching)
+  function matchesCommand(typed, expected) {
+    const t = normalizeCmd(typed);
+    const e = normalizeCmd(expected.split('\n')[0]);
+    
+    // Exact match
+    if (t === e) return true;
+    
+    // Match without sudo prefix variation
+    const tNoSudo = t.replace(/^sudo\s+/, '');
+    const eNoSudo = e.replace(/^sudo\s+/, '');
+    if (tNoSudo === eNoSudo) return true;
+    
+    // Match core command (ignore minor flag order differences)
+    const tParts = t.split(/\s+/).sort();
+    const eParts = e.split(/\s+/).sort();
+    if (tParts.join(' ') === eParts.join(' ')) return true;
+    
+    return false;
+  }
+
+  input.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter') return;
+    const cmd = input.value.trim();
+    if (!cmd) return;
+    
+    input.value = '';
+    addPromptLine(cmd);
+
+    // Built-in commands
+    if (cmd.toLowerCase() === 'help') {
+      addLine('Available commands:', 'info');
+      addLine('  help     - Show this help message', 'output');
+      addLine('  hint     - Show hint for current task', 'output');
+      addLine('  clear    - Clear terminal', 'output');
+      addLine('  skip     - Skip current task', 'output');
+      addLine('  reset    - Reset lab', 'output');
+      addLine('');
+      return;
+    }
+    
+    if (cmd.toLowerCase() === 'clear') {
+      terminal.innerHTML = '';
+      return;
+    }
+    
+    if (cmd.toLowerCase() === 'hint') {
+      if (currentTask < totalTasks) {
+        addLine('💡 Hint: ' + tasks[currentTask].hint, 'warning');
+      }
+      return;
+    }
+    
+    if (cmd.toLowerCase() === 'skip') {
+      if (currentTask < totalTasks) {
+        addLine('⏭️ Skipped task ' + (currentTask + 1), 'warning');
+        completeTask(currentTask);
+      }
+      return;
+    }
+    
+    if (cmd.toLowerCase() === 'reset') {
+      location.reload();
+      return;
+    }
+
+    // Check against current task
+    if (currentTask < totalTasks) {
+      const task = tasks[currentTask];
+      if (matchesCommand(cmd, task.command)) {
+        // Correct command
+        if (task.output) {
+          task.output.split('\n').forEach(line => {
+            addLine(line, 'success');
+          });
+        }
+        addLine('');
+        addLine('✅ Task ' + (currentTask + 1) + ' completed!', 'success');
+        addLine('');
+        completeTask(currentTask);
+      } else {
+        // Check if it matches any OTHER task (not just current)
+        let found = false;
+        for (let i = currentTask + 1; i < totalTasks; i++) {
+          if (matchesCommand(cmd, tasks[i].command)) {
+            addLine('⚠️ That command is for task ' + (i + 1) + '. Complete task ' + (currentTask + 1) + ' first.', 'warning');
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          addLine('❌ Command not recognized for the current task.', 'error');
+          addLine('💡 Type "hint" for a clue, or "help" for commands.', 'info');
+        }
+      }
+    } else {
+      addLine('All tasks are complete! Type "reset" to start over.', 'info');
+    }
+  });
+
+  hintBtn.addEventListener('click', function() {
+    if (currentTask < totalTasks) {
+      addLine('💡 Hint: ' + tasks[currentTask].hint, 'warning');
+      terminal.scrollTop = terminal.scrollHeight;
+    }
+  });
+
+  // Focus input on terminal click
+  document.querySelector('.terminal-wrap').addEventListener('click', function() {
+    input.focus();
+  });
+})();
+</script>
+</body>
+</html>

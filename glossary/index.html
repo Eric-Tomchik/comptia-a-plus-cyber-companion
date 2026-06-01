@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glossary — CompTIA A+ Cyber Study Guide Companion</title>
-  <meta name="description" content="Searchable glossary of key cybersecurity terms from the CompTIA A+ Cyber Study Guide.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <title>Glossary — CompTIA A+ Cyber Study Guide Companion</title>
+  <meta name="description" content="Complete searchable glossary of 119 cybersecurity terms from the CompTIA A+ Cyber Study Guide.">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -21,7 +21,7 @@
       <a href="../chapters/index.html">Chapters</a>
       <a href="../reference/index.html">Reference</a>
       <a href="../labs/index.html">Labs</a>
-      <a href="index.html" class="active">Glossary</a>
+      <a href="../glossary/index.html" class="active">Glossary</a>
       <a href="../flashcards/index.html">Flashcards</a>
       <a href="../quiz/index.html">Quiz</a>
       <a href="../errata/index.html">Errata</a>
@@ -31,138 +31,143 @@
 
 <section class="hero" style="padding:3rem 0 2rem">
   <div class="container">
-    <div class="badge">Key Terms</div>
+    <div class="badge">Appendix C · 119 Terms</div>
     <h1>Glossary</h1>
-    <p class="subtitle">Search and browse every key term from the study guide.</p>
+    <p class="subtitle">Every key term from the study guide — searchable and filterable.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="glossary-search-wrap">
-      <span class="search-icon">🔍</span>
-      <input type="text" class="glossary-search" placeholder="Search terms or definitions..." aria-label="Search glossary">
+    <div class="glossary-controls">
+      <div class="glossary-search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="glossary-search" placeholder="Search terms or definitions..." aria-label="Search glossary">
+      </div>
+      <div class="glossary-alpha-filter" id="alphaFilter"></div>
     </div>
-    <div class="glossary-count">Showing all terms</div>
+    <div class="glossary-count" id="glossaryCount">Showing all 119 terms</div>
     <div class="glossary-grid">
 
-      <div class="glossary-item"><div class="glossary-term">ACL (Access Control List)</div><p class="glossary-def">A list of permissions attached to a resource that specifies which users or groups can access it and what actions they can perform.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Active Directory (AD)</div><p class="glossary-def">Microsoft's directory service for managing users, computers, and policies in a Windows domain network.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">AES (Advanced Encryption Standard)</div><p class="glossary-def">A symmetric encryption algorithm widely used to protect data. Supports 128, 192, and 256-bit key sizes.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">ALE (Annualized Loss Expectancy)</div><p class="glossary-def">The expected monetary loss from a specific risk over one year. Calculated as SLE × ARO.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">APT (Advanced Persistent Threat)</div><p class="glossary-def">A sophisticated, long-term cyberattack campaign, typically conducted by nation-state or well-funded actors.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">ARO (Annualized Rate of Occurrence)</div><p class="glossary-def">The estimated number of times a specific threat is expected to occur within a one-year period.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Attack Vector</div><p class="glossary-def">The method or pathway used by an attacker to gain unauthorized access to a system.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Bash</div><p class="glossary-def">Bourne Again Shell — the default command-line interpreter on most Linux systems, widely used for scripting.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">BitLocker</div><p class="glossary-def">Microsoft's full-disk encryption feature built into Windows Professional and Enterprise editions.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Brute Force Attack</div><p class="glossary-def">An attack method that systematically tries all possible passwords or keys until the correct one is found.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">C2 (Command and Control)</div><p class="glossary-def">The infrastructure and communication channels attackers use to maintain control over compromised systems.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">CIA Triad</div><p class="glossary-def">The three pillars of information security: Confidentiality, Integrity, and Availability.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">CIS Controls</div><p class="glossary-def">A prioritized set of actions developed by the Center for Internet Security that form a defense-in-depth set of best practices for cybersecurity.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">CompCert</div><p class="glossary-def">CompTIA Competency Certificate — a credential earned by completing a structured course and assessments.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Credential Stuffing</div><p class="glossary-def">An attack that uses stolen username/password pairs from previous breaches to attempt login on other services.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Cron</div><p class="glossary-def">A Linux utility that schedules scripts and commands to run automatically at specified intervals.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">CVSS</div><p class="glossary-def">Common Vulnerability Scoring System — a standardized severity rating for security vulnerabilities (0.0–10.0).</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">DDoS</div><p class="glossary-def">Distributed Denial of Service — an attack that overwhelms a target with traffic from multiple sources.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Defense in Depth</div><p class="glossary-def">A security strategy employing multiple layers of controls so that failure of one layer does not compromise the whole system.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">DHCP</div><p class="glossary-def">Dynamic Host Configuration Protocol — automatically assigns IP addresses to devices on a network.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">DLP (Data Loss Prevention)</div><p class="glossary-def">Technologies and policies that prevent sensitive data from leaving an organization's control.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">DNS</div><p class="glossary-def">Domain Name System — translates human-readable domain names into IP addresses.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">EDR (Endpoint Detection and Response)</div><p class="glossary-def">Advanced endpoint security that provides continuous monitoring, threat detection, and automated response.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Encryption</div><p class="glossary-def">The process of converting plaintext into ciphertext using an algorithm and key, making it unreadable without the correct key.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">EPP (Endpoint Protection Platform)</div><p class="glossary-def">A security solution that protects endpoints (workstations, servers, mobile devices) from threats using antivirus, anti-malware, and firewall capabilities.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Firewall</div><p class="glossary-def">A network security device that monitors and filters traffic based on a defined set of security rules.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">GPG (GNU Privacy Guard)</div><p class="glossary-def">An open-source implementation of the OpenPGP standard for encrypting and signing data and communications.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">GPO (Group Policy Object)</div><p class="glossary-def">A collection of security and configuration settings applied to users and computers in an Active Directory domain.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Hashing</div><p class="glossary-def">A one-way function that produces a fixed-size output (digest) from any input. Used for integrity verification and password storage.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">HTTPS</div><p class="glossary-def">HTTP Secure — web browsing encrypted with TLS, providing confidentiality, authentication, and integrity.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">IDS (Intrusion Detection System)</div><p class="glossary-def">A system that passively monitors network traffic or host activity and alerts on suspicious patterns.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">IoC (Indicator of Compromise)</div><p class="glossary-def">Forensic evidence that suggests a system or network has been breached (e.g., malicious IPs, file hashes).</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">IPS (Intrusion Prevention System)</div><p class="glossary-def">A system that monitors traffic inline and can actively block detected threats.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">ISO 27001</div><p class="glossary-def">An international standard for information security management systems (ISMS), specifying requirements for establishing, implementing, and continually improving security.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Lateral Movement</div><p class="glossary-def">The technique attackers use to move through a network after initial compromise, accessing additional systems.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">MITRE ATT&CK</div><p class="glossary-def">A knowledge base of adversary tactics and techniques based on real-world observations, used for threat analysis.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">MFA (Multi-Factor Authentication)</div><p class="glossary-def">An authentication method requiring two or more verification factors (something you know, have, or are).</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">NAT (Network Address Translation)</div><p class="glossary-def">Translates private IP addresses to public IP addresses, allowing multiple devices to share a single public IP.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">NIST CSF</div><p class="glossary-def">National Institute of Standards and Technology Cybersecurity Framework — five-function model: Identify, Protect, Detect, Respond, Recover.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Nmap</div><p class="glossary-def">Network Mapper — open-source tool for network discovery, port scanning, and security auditing.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Phishing</div><p class="glossary-def">A social engineering attack using deceptive emails or websites to trick users into revealing sensitive information.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Ransomware</div><p class="glossary-def">Malware that encrypts a victim's files and demands payment (ransom) for the decryption key.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">RPO (Recovery Point Objective)</div><p class="glossary-def">The maximum acceptable amount of data loss measured in time. Determines backup frequency.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">RTO (Recovery Time Objective)</div><p class="glossary-def">The maximum acceptable time to restore service after a disruption.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">SIEM</div><p class="glossary-def">Security Information and Event Management — collects, correlates, and analyzes logs from multiple sources for threat detection.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">SLE (Single Loss Expectancy)</div><p class="glossary-def">The expected monetary loss each time a risk event occurs. Calculated as Asset Value × Exposure Factor.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">SOC (Security Operations Center)</div><p class="glossary-def">A centralized team that monitors, detects, and responds to cybersecurity threats 24/7.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">SQL Injection</div><p class="glossary-def">An attack that inserts malicious SQL code through application input fields to manipulate databases.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">SSH (Secure Shell)</div><p class="glossary-def">An encrypted protocol for secure remote access to systems (port 22).</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">SUID</div><p class="glossary-def">Set User ID — a Linux permission bit that allows a program to run with the file owner's privileges.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Supply Chain Attack</div><p class="glossary-def">An attack that compromises trusted third-party software, hardware, or service providers to gain access to their customers' environments.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">TLS (Transport Layer Security)</div><p class="glossary-def">A cryptographic protocol that provides secure communication over networks. The successor to SSL.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">UAC (User Account Control)</div><p class="glossary-def">A Windows security feature that prompts for administrator confirmation before allowing system changes.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">VLAN</div><p class="glossary-def">Virtual Local Area Network — a logical network segment on a managed switch for traffic separation.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">VPN (Virtual Private Network)</div><p class="glossary-def">Creates an encrypted tunnel between a client and server for secure communication over untrusted networks.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Vulnerability</div><p class="glossary-def">A weakness in a system, application, or process that could be exploited by a threat actor.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Wireshark</div><p class="glossary-def">An open-source network protocol analyzer for capturing and inspecting network traffic.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">WPA3</div><p class="glossary-def">Wi-Fi Protected Access 3 — the current standard for wireless network encryption and authentication.</p></div>
-
-      <div class="glossary-item"><div class="glossary-term">Zero-Day</div><p class="glossary-def">A vulnerability that is unknown to the vendor and has no available patch, making it particularly dangerous.</p></div>
+      <div class="glossary-item"><div class="glossary-term">ACL (Access Control List)</div><p class="glossary-def">A set of rules on a router or firewall that determines which traffic is permitted or denied.</p></div>
+      <div class="glossary-item"><div class="glossary-term">AES (Advanced Encryption Standard)</div><p class="glossary-def">A symmetric encryption algorithm; the current standard for data encryption. Available in 128, 192, and 256‑bit key lengths.</p></div>
+      <div class="glossary-item"><div class="glossary-term">ALE (Annualized Loss Expectancy)</div><p class="glossary-def">The expected annual cost of a risk. Calculated as SLE × ARO.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Anomaly‑Based Detection</div><p class="glossary-def">A detection method that establishes a baseline of normal behavior and alerts on deviations.</p></div>
+      <div class="glossary-item"><div class="glossary-term">ARO (Annual Rate of Occurrence)</div><p class="glossary-def">How often a specific threat is expected to occur per year.</p></div>
+      <div class="glossary-item"><div class="glossary-term">ARP (Address Resolution Protocol)</div><p class="glossary-def">Resolves IP addresses to MAC addresses on a local network.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Asymmetric Encryption</div><p class="glossary-def">Encryption using a key pair (public and private). Data encrypted with one key can only be decrypted with the other.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Authentication</div><p class="glossary-def">The process of verifying the identity of a user, device, or system.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Availability</div><p class="glossary-def">The assurance that systems and data are accessible when needed by authorized users.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Backup</div><p class="glossary-def">A copy of data stored separately from the original for recovery purposes.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Botnet</div><p class="glossary-def">A network of compromised computers controlled remotely by an attacker.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Brute Force Attack</div><p class="glossary-def">An attack that tries every possible combination to guess a password or encryption key.</p></div>
+      <div class="glossary-item"><div class="glossary-term">CA (Certificate Authority)</div><p class="glossary-def">A trusted entity that issues and signs digital certificates.</p></div>
+      <div class="glossary-item"><div class="glossary-term">CIA Triad</div><p class="glossary-def">The three core principles of information security: Confidentiality, Integrity, and Availability.</p></div>
+      <div class="glossary-item"><div class="glossary-term">CIDR (Classless Inter‑Domain Routing)</div><p class="glossary-def">A method for allocating IP addresses and IP routing using variable‑length subnet masks.</p></div>
+      <div class="glossary-item"><div class="glossary-term">CIS Benchmarks</div><p class="glossary-def">Industry‑standard security configuration guidelines published by the Center for Internet Security.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Cloud Computing</div><p class="glossary-def">Delivery of IT resources (compute, storage, networking) over the internet on a pay‑as‑you‑go basis.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Cold Site</div><p class="glossary-def">A DR facility with basic infrastructure but no pre‑installed hardware or data.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Compensating Control</div><p class="glossary-def">An alternative security measure used when the primary control cannot be implemented.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Confidentiality</div><p class="glossary-def">The assurance that information is accessible only to authorized individuals.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Container</div><p class="glossary-def">A lightweight virtualization technology that packages an application with its dependencies, sharing the host OS kernel.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Cron</div><p class="glossary-def">The Linux task scheduler that runs commands or scripts at specified intervals.</p></div>
+      <div class="glossary-item"><div class="glossary-term">CVE (Common Vulnerabilities and Exposures)</div><p class="glossary-def">A standardized system for identifying and naming known security vulnerabilities.</p></div>
+      <div class="glossary-item"><div class="glossary-term">CVSS (Common Vulnerability Scoring System)</div><p class="glossary-def">A standardized method for rating vulnerability severity on a scale of 0.0 to 10.0.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Cyber Kill Chain</div><p class="glossary-def">A model describing the seven stages of a cyber attack, from reconnaissance to actions on objectives.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Deepfake</div><p class="glossary-def">AI‑generated synthetic media (audio/video) used for impersonation in social engineering attacks.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Defense in Depth</div><p class="glossary-def">A security strategy that uses multiple layers of controls so no single failure compromises security.</p></div>
+      <div class="glossary-item"><div class="glossary-term">DHCP (Dynamic Host Configuration Protocol)</div><p class="glossary-def">Automatically assigns IP addresses and network configuration to devices.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Digital Signature</div><p class="glossary-def">A cryptographic technique providing authentication, integrity, and non‑repudiation.</p></div>
+      <div class="glossary-item"><div class="glossary-term">DMZ (Demilitarized Zone)</div><p class="glossary-def">A network segment between the internet and internal network, hosting public‑facing services.</p></div>
+      <div class="glossary-item"><div class="glossary-term">DNS (Domain Name System)</div><p class="glossary-def">Translates domain names into IP addresses.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Drive‑by Download</div><p class="glossary-def">Malware that downloads automatically when visiting a compromised website without user interaction.</p></div>
+      <div class="glossary-item"><div class="glossary-term">EDR (Endpoint Detection and Response)</div><p class="glossary-def">Agent‑based security monitoring and response for endpoints (workstations, servers).</p></div>
+      <div class="glossary-item"><div class="glossary-term">Encryption</div><p class="glossary-def">The process of converting plaintext into ciphertext using an algorithm and key.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Exposure Factor (EF)</div><p class="glossary-def">The percentage of an asset's value lost in a single incident.</p></div>
+      <div class="glossary-item"><div class="glossary-term">False Negative</div><p class="glossary-def">When a security system fails to detect a real threat.</p></div>
+      <div class="glossary-item"><div class="glossary-term">False Positive</div><p class="glossary-def">When a security system incorrectly identifies legitimate activity as malicious.</p></div>
+      <div class="glossary-item"><div class="glossary-term">FIDO2</div><p class="glossary-def">An authentication standard enabling passwordless login via WebAuthn and CTAP2 protocols.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Fileless Malware</div><p class="glossary-def">Malware that operates entirely in memory without writing files to disk.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Firewall</div><p class="glossary-def">A network security device that monitors and controls traffic based on security rules.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Full Backup</div><p class="glossary-def">A backup of all selected data, regardless of when it was last backed up.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Hashing</div><p class="glossary-def">A one‑way function that converts data into a fixed‑length value for integrity verification.</p></div>
+      <div class="glossary-item"><div class="glossary-term">HIDS (Host‑based IDS)</div><p class="glossary-def">An intrusion detection system installed on individual hosts to monitor local activity.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Hot Site</div><p class="glossary-def">A fully operational DR facility with real‑time data replication, providing the fastest recovery.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Hypervisor</div><p class="glossary-def">Software that creates and manages virtual machines. Type 1 runs on hardware; Type 2 runs on a host OS.</p></div>
+      <div class="glossary-item"><div class="glossary-term">IaaS (Infrastructure as a Service)</div><p class="glossary-def">Cloud model providing virtualized computing resources; customer manages OS, apps, and data.</p></div>
+      <div class="glossary-item"><div class="glossary-term">IDS (Intrusion Detection System)</div><p class="glossary-def">A system that monitors network or host activity and alerts on suspicious behavior (passive).</p></div>
+      <div class="glossary-item"><div class="glossary-term">Incremental Backup</div><p class="glossary-def">Backs up only data that has changed since the last backup of any type.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Integrity</div><p class="glossary-def">The assurance that data has not been altered or tampered with.</p></div>
+      <div class="glossary-item"><div class="glossary-term">IoC (Indicator of Compromise)</div><p class="glossary-def">Observable evidence suggesting a system may have been compromised.</p></div>
+      <div class="glossary-item"><div class="glossary-term">IPS (Intrusion Prevention System)</div><p class="glossary-def">Like an IDS but also takes action to block or prevent detected threats (active, inline).</p></div>
+      <div class="glossary-item"><div class="glossary-term">Keylogger</div><p class="glossary-def">Software or hardware that records keystrokes to capture sensitive information.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Kill Chain</div><p class="glossary-def">See Cyber Kill Chain.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Least Privilege</div><p class="glossary-def">The principle that users should have only the minimum access necessary for their role.</p></div>
+      <div class="glossary-item"><div class="glossary-term">MAC (Mandatory Access Control)</div><p class="glossary-def">Access control enforced by the system based on classification labels.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Malware</div><p class="glossary-def">Malicious software designed to damage, disrupt, or gain unauthorized access to systems.</p></div>
+      <div class="glossary-item"><div class="glossary-term">MFA (Multi‑Factor Authentication)</div><p class="glossary-def">Authentication requiring factors from two or more different categories.</p></div>
+      <div class="glossary-item"><div class="glossary-term">MTBF (Mean Time Between Failures)</div><p class="glossary-def">Average time between system failures.</p></div>
+      <div class="glossary-item"><div class="glossary-term">MTTR (Mean Time to Repair)</div><p class="glossary-def">Average time to fix a failed component or system.</p></div>
+      <div class="glossary-item"><div class="glossary-term">NAT (Network Address Translation)</div><p class="glossary-def">Translates private IP addresses to a public IP for internet access.</p></div>
+      <div class="glossary-item"><div class="glossary-term">NGFW (Next‑Generation Firewall)</div><p class="glossary-def">A firewall combining stateful inspection, application awareness, IPS, and threat intelligence.</p></div>
+      <div class="glossary-item"><div class="glossary-term">NIDS (Network‑based IDS)</div><p class="glossary-def">An IDS that monitors network traffic passing through a network segment.</p></div>
+      <div class="glossary-item"><div class="glossary-term">NIST (National Institute of Standards and Technology)</div><p class="glossary-def">US agency that develops cybersecurity frameworks, standards, and guidelines.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Non‑repudiation</div><p class="glossary-def">The assurance that a sender cannot deny sending a message (provided by digital signatures).</p></div>
+      <div class="glossary-item"><div class="glossary-term">PaaS (Platform as a Service)</div><p class="glossary-def">Cloud model providing a platform for developing and deploying applications.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Parameterized Query</div><p class="glossary-def">A SQL query that separates code from data, preventing SQL injection attacks.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Passkey</div><p class="glossary-def">A FIDO2‑based passwordless credential using asymmetric cryptography; phishing‑resistant.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Patch Management</div><p class="glossary-def">The process of acquiring, testing, and applying software updates to fix vulnerabilities.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Penetration Testing</div><p class="glossary-def">Authorized simulated attacks to identify exploitable vulnerabilities.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Phishing</div><p class="glossary-def">A social engineering attack using deceptive emails or websites to steal credentials.</p></div>
+      <div class="glossary-item"><div class="glossary-term">PKI (Public Key Infrastructure)</div><p class="glossary-def">The framework for managing digital certificates and public‑key encryption.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Ransomware</div><p class="glossary-def">Malware that encrypts files and demands payment for the decryption key.</p></div>
+      <div class="glossary-item"><div class="glossary-term">RBAC (Role‑Based Access Control)</div><p class="glossary-def">Access control that assigns permissions based on organizational roles.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Rootkit</div><p class="glossary-def">Malware that hides deep in the OS to maintain persistent, undetected access.</p></div>
+      <div class="glossary-item"><div class="glossary-term">RPO (Recovery Point Objective)</div><p class="glossary-def">Maximum acceptable data loss, measured in time.</p></div>
+      <div class="glossary-item"><div class="glossary-term">RSA</div><p class="glossary-def">An asymmetric encryption algorithm used for digital signatures and key exchange.</p></div>
+      <div class="glossary-item"><div class="glossary-term">RTO (Recovery Time Objective)</div><p class="glossary-def">Maximum acceptable downtime before systems must be restored.</p></div>
+      <div class="glossary-item"><div class="glossary-term">SaaS (Software as a Service)</div><p class="glossary-def">Cloud model delivering applications over the internet (customer manages only their data).</p></div>
+      <div class="glossary-item"><div class="glossary-term">SAE (Simultaneous Authentication of Equals)</div><p class="glossary-def">The key exchange method used in WPA3 wireless security.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Sandboxing</div><p class="glossary-def">Isolating a program or process in a restricted environment to limit its access.</p></div>
+      <div class="glossary-item"><div class="glossary-term">SBOM (Software Bill of Materials)</div><p class="glossary-def">A list of all components and dependencies in a software product, used for supply chain security.</p></div>
+      <div class="glossary-item"><div class="glossary-term">SHA (Secure Hash Algorithm)</div><p class="glossary-def">A family of cryptographic hash functions. SHA‑256 is the current standard.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Shared Responsibility Model</div><p class="glossary-def">Cloud security framework dividing responsibilities between the provider and customer.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Signature‑Based Detection</div><p class="glossary-def">A detection method matching activity against known attack patterns.</p></div>
+      <div class="glossary-item"><div class="glossary-term">SLE (Single Loss Expectancy)</div><p class="glossary-def">The cost of a single incident. Calculated as Asset Value × Exposure Factor.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Smishing</div><p class="glossary-def">Phishing via SMS text messages.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Snort</div><p class="glossary-def">The most widely used open‑source IDS/IPS engine.</p></div>
+      <div class="glossary-item"><div class="glossary-term">SOAR (Security Orchestration, Automation, and Response)</div><p class="glossary-def">Platform that automates incident response workflows and integrates security tools.</p></div>
+      <div class="glossary-item"><div class="glossary-term">SOC (Security Operations Center)</div><p class="glossary-def">A centralized facility for monitoring, detecting, and responding to security events.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Social Engineering</div><p class="glossary-def">Manipulating people into divulging information or performing actions that compromise security.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Spear Phishing</div><p class="glossary-def">Phishing targeted at specific individuals using personalized information.</p></div>
+      <div class="glossary-item"><div class="glossary-term">SQL Injection</div><p class="glossary-def">An attack that inserts malicious SQL into database queries through unsanitized input.</p></div>
+      <div class="glossary-item"><div class="glossary-term">SUID (Set User ID)</div><p class="glossary-def">A Linux file permission that allows a program to run with the file owner's privileges.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Supply Chain Attack</div><p class="glossary-def">An attack that targets trusted vendor relationships to distribute malicious code through legitimate channels.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Symmetric Encryption</div><p class="glossary-def">Encryption using the same key for both encryption and decryption.</p></div>
+      <div class="glossary-item"><div class="glossary-term">TDE (Transparent Data Encryption)</div><p class="glossary-def">Encrypts an entire database at rest without requiring application changes.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Threat Hunting</div><p class="glossary-def">Proactively searching for threats that have evaded existing security controls.</p></div>
+      <div class="glossary-item"><div class="glossary-term">TLS (Transport Layer Security)</div><p class="glossary-def">A protocol that provides encrypted communication between clients and servers.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Trojan</div><p class="glossary-def">Malware disguised as legitimate software.</p></div>
+      <div class="glossary-item"><div class="glossary-term">UEBA (User and Entity Behavior Analytics)</div><p class="glossary-def">Uses machine learning to detect anomalous user and device behavior indicating compromise.</p></div>
+      <div class="glossary-item"><div class="glossary-term">UPnP (Universal Plug and Play)</div><p class="glossary-def">A protocol that automatically configures network devices; a security risk when enabled.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Virus</div><p class="glossary-def">Malware that attaches to files and requires user action to execute.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Vishing</div><p class="glossary-def">Phishing via voice/phone calls.</p></div>
+      <div class="glossary-item"><div class="glossary-term">VLAN (Virtual Local Area Network)</div><p class="glossary-def">A logical network segment on a switch that isolates traffic.</p></div>
+      <div class="glossary-item"><div class="glossary-term">VM Escape</div><p class="glossary-def">An attack where malware breaks out of a virtual machine to access the hypervisor or host.</p></div>
+      <div class="glossary-item"><div class="glossary-term">VM Sprawl</div><p class="glossary-def">Uncontrolled creation of virtual machines that become unmanaged and potentially vulnerable.</p></div>
+      <div class="glossary-item"><div class="glossary-term">VPN (Virtual Private Network)</div><p class="glossary-def">Creates an encrypted tunnel for secure remote network access.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Vulnerability</div><p class="glossary-def">A weakness in a system that could be exploited by a threat.</p></div>
+      <div class="glossary-item"><div class="glossary-term">WAF (Web Application Firewall)</div><p class="glossary-def">A firewall that filters and monitors HTTP traffic to protect web applications.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Warm Site</div><p class="glossary-def">A DR facility with hardware installed but requiring data restoration.</p></div>
+      <div class="glossary-item"><div class="glossary-term">WEP (Wired Equivalent Privacy)</div><p class="glossary-def">An obsolete, broken wireless security protocol. Never use.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Whaling</div><p class="glossary-def">A phishing attack specifically targeting senior executives.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Worm</div><p class="glossary-def">Self‑replicating malware that spreads across networks without user interaction.</p></div>
+      <div class="glossary-item"><div class="glossary-term">WPA2 (Wi‑Fi Protected Access 2)</div><p class="glossary-def">A wireless security protocol using AES encryption. Acceptable minimum standard.</p></div>
+      <div class="glossary-item"><div class="glossary-term">WPA3 (Wi‑Fi Protected Access 3)</div><p class="glossary-def">The latest wireless security protocol using SAE key exchange. Preferred standard.</p></div>
+      <div class="glossary-item"><div class="glossary-term">XDR (Extended Detection and Response)</div><p class="glossary-def">Cross‑layer detection and response integrating endpoint, network, cloud, and email telemetry.</p></div>
+      <div class="glossary-item"><div class="glossary-term">XSS (Cross‑Site Scripting)</div><p class="glossary-def">A web attack that injects malicious JavaScript into pages viewed by other users.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Zero Day</div><p class="glossary-def">A vulnerability that is unknown to the vendor and has no available patch.</p></div>
+      <div class="glossary-item"><div class="glossary-term">Zero Trust</div><p class="glossary-def">A security model based on 'never trust, always verify' regardless of network location.</p></div>
 
     </div>
   </div>
@@ -176,5 +181,49 @@
 </footer>
 
 <script src="../js/app.js"></script>
+<script>
+// Alpha filter
+(function() {
+  const filter = document.getElementById('alphaFilter');
+  const items = document.querySelectorAll('.glossary-item');
+  const countEl = document.getElementById('glossaryCount');
+  const letters = new Set();
+  items.forEach(el => {
+    const t = el.querySelector('.glossary-term').textContent.trim();
+    letters.add(t[0].toUpperCase());
+  });
+  const sorted = [...letters].sort();
+  
+  const allBtn = document.createElement('button');
+  allBtn.textContent = 'All';
+  allBtn.className = 'alpha-btn active';
+  allBtn.addEventListener('click', () => {
+    document.querySelectorAll('.alpha-btn').forEach(b => b.classList.remove('active'));
+    allBtn.classList.add('active');
+    items.forEach(el => el.style.display = '');
+    countEl.textContent = `Showing all 119 terms`;
+  });
+  filter.appendChild(allBtn);
+  
+  sorted.forEach(letter => {
+    const btn = document.createElement('button');
+    btn.textContent = letter;
+    btn.className = 'alpha-btn';
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.alpha-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      let count = 0;
+      items.forEach(el => {
+        const t = el.querySelector('.glossary-term').textContent.trim();
+        const show = t[0].toUpperCase() === letter;
+        el.style.display = show ? '' : 'none';
+        if (show) count++;
+      });
+      countEl.textContent = `Showing ${count} term${count !== 1 ? 's' : ''} starting with "${letter}"`;
+    });
+    filter.appendChild(btn);
+  });
+})();
+</script>
 </body>
 </html>

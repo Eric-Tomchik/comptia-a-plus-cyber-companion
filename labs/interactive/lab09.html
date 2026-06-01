@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 9: File Encryption with GPG — CompTIA A+ Cyber Companion</title>
+  <meta name="description" content="Interactive lab: File Encryption with GPG. Encrypt and decrypt files using symmetric and asymmetric GPG encryption.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../../index.html" class="nav-brand"><span class="icon">🛡️</span> A+ Cyber Companion</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <div class="nav-links">
+      <a href="../../index.html">Home</a>
+      <a href="../../chapters/index.html">Chapters</a>
+      <a href="../../reference/index.html">Reference</a>
+      <a href="../index.html" class="active">Labs</a>
+      <a href="../../glossary/index.html">Glossary</a>
+      <a href="../../flashcards/index.html">Flashcards</a>
+      <a href="../../quiz/index.html">Quiz</a>
+      <a href="../../errata/index.html">Errata</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" style="padding:3rem 0 2rem">
+  <div class="container">
+    <div style="display:flex;gap:.5rem;margin-bottom:.5rem">
+      <div class="badge">Lab 9</div>
+      <div class="badge" style="background:rgba(16,185,129,.15);color:var(--green)">Chapter 17</div>
+      <div class="badge" style="background:rgba(245,158,11,.15);color:var(--orange)">🐧 Linux</div>
+    </div>
+    <h1>File Encryption with GPG</h1>
+    <p class="subtitle">Encrypt and decrypt files using symmetric and asymmetric GPG encryption.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="lab-progress">
+      <span class="lab-progress-text" id="progressText">0 / 7 tasks completed</span>
+      <div class="lab-progress-bar">
+        <div class="lab-progress-fill" id="progressFill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <h2 style="margin-bottom:1rem">📋 Tasks</h2>
+    <div id="taskList">
+      
+        <div class="terminal-task" data-task="0" id="task-0">
+          <span class="task-num">1</span>
+          <strong>Create a test file with sensitive data</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">echo 'CONFIDENTIAL: Server root password is S3cur3P@ss!' > secret.txt</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="1" id="task-1">
+          <span class="task-num">2</span>
+          <strong>Encrypt the file with symmetric encryption (AES-256)</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">gpg --symmetric --cipher-algo AES256 secret.txt</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="2" id="task-2">
+          <span class="task-num">3</span>
+          <strong>Verify the encrypted file was created</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">ls -la secret.txt*</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="3" id="task-3">
+          <span class="task-num">4</span>
+          <strong>Securely delete the original plaintext file</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">shred -vfz -n 3 secret.txt && rm secret.txt</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="4" id="task-4">
+          <span class="task-num">5</span>
+          <strong>Decrypt the file</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">gpg --decrypt secret.txt.gpg</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="5" id="task-5">
+          <span class="task-num">6</span>
+          <strong>Generate a GPG key pair for asymmetric encryption</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">gpg --gen-key</code>
+          </div>
+        </div>
+        <div class="terminal-task" data-task="6" id="task-6">
+          <span class="task-num">7</span>
+          <strong>Export your public key for sharing</strong>
+          <div style="margin-top:.4rem;font-size:.8rem;color:var(--text-dim)">
+            <code style="background:var(--bg-card);padding:.15rem .4rem;border-radius:4px;font-family:var(--mono);font-size:.78rem">gpg --export --armor student@cyber-lab.local > public_key.asc</code>
+          </div>
+        </div>
+    </div>
+
+    <h2 style="margin:2rem 0 1rem">💻 Interactive Terminal</h2>
+    <div class="terminal-wrap">
+      <div class="terminal-titlebar">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-title">bash — cyber-lab</span>
+      </div>
+      <div class="terminal-body" id="terminalBody">
+        <div class="output info">Welcome to Lab 9: File Encryption with GPG</div>
+        <div class="output info">Type commands below to complete each task. Type 'help' for available commands.</div>
+        <div class="output">──────────────────────────────────────────────</div>
+      </div>
+      <div style="padding:.5rem 1.25rem;background:#0d1117;border-top:1px solid #21262d">
+        <div class="terminal-input-line">
+          <span class="terminal-prompt">student@cyber-lab:~$</span>
+          <input type="text" class="terminal-input" id="terminalInput" placeholder="Type a command..." autofocus autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+      <div class="terminal-hint">
+        <span class="hint-icon">💡</span>
+        <span id="hintText">Complete task 1: Create a test file with sensitive data</span>
+        <button class="btn btn-outline" style="margin-left:auto;font-size:.75rem;padding:.25rem .5rem" id="hintBtn">Show Hint</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:2rem;border-color:var(--accent)">
+      <h3>🤔 Reflection</h3>
+      <p style="color:var(--text-muted)">When would you use symmetric vs. asymmetric encryption?</p>
+    </div>
+
+    <div style="display:flex;justify-content:space-between;margin-top:2rem">
+      <a href="lab08.html" class="btn btn-outline">← Lab 8</a>
+      <a href="lab10.html" class="btn btn-primary">Lab 10 →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <span class="footer-brand">ArcLight Press</span>
+    <p>&copy; 2026 Eric Tomchik. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../../js/app.js"></script>
+<script>
+(function() {
+  const tasks = [{"instruction": "Create a test file with sensitive data", "command": "echo 'CONFIDENTIAL: Server root password is S3cur3P@ss!' > secret.txt", "output": "", "hint": "Use echo to create the file"}, {"instruction": "Encrypt the file with symmetric encryption (AES-256)", "command": "gpg --symmetric --cipher-algo AES256 secret.txt", "output": "Enter passphrase: ********\nRepeat passphrase: ********\nFile encrypted: secret.txt.gpg", "hint": "Use 'gpg --symmetric --cipher-algo AES256 <file>'"}, {"instruction": "Verify the encrypted file was created", "command": "ls -la secret.txt*", "output": "-rw-r--r-- 1 student student  52 Jan 15 11:00 secret.txt\n-rw-r--r-- 1 student student  89 Jan 15 11:00 secret.txt.gpg", "hint": "Use 'ls -la' to list files"}, {"instruction": "Securely delete the original plaintext file", "command": "shred -vfz -n 3 secret.txt && rm secret.txt", "output": "secret.txt: pass 1/3 (random)...\nsecret.txt: pass 2/3 (random)...\nsecret.txt: pass 3/3 (zeros)...\nFile securely deleted.", "hint": "Use 'shred -vfz -n 3' for secure deletion"}, {"instruction": "Decrypt the file", "command": "gpg --decrypt secret.txt.gpg", "output": "gpg: AES256 encrypted data\nEnter passphrase: ********\ngpg: encrypted with 1 passphrase\nCONFIDENTIAL: Server root password is S3cur3P@ss!", "hint": "Use 'gpg --decrypt <file.gpg>'"}, {"instruction": "Generate a GPG key pair for asymmetric encryption", "command": "gpg --gen-key", "output": "gpg (GnuPG) 2.2.40\nPlease select what kind of key you want:\n   (1) RSA and RSA (default)\nYour selection? 1\nRSA key size: 4096\nKey is valid for? 1y\n\nReal name: Student Lab\nEmail: student@cyber-lab.local\n\ngpg: key 8A2B3C4D5E6F7890 marked as ultimately trusted\npub   rsa4096 2026-01-15 [SC] [expires: 2027-01-15]\n      ABCD1234EFGH5678IJKL9012MNOP3456QRST7890\nuid   Student Lab <student@cyber-lab.local>\nsub   rsa4096 2026-01-15 [E] [expires: 2027-01-15]", "hint": "Use 'gpg --gen-key' and follow the prompts"}, {"instruction": "Export your public key for sharing", "command": "gpg --export --armor student@cyber-lab.local > public_key.asc", "output": "Public key exported to public_key.asc", "hint": "Use 'gpg --export --armor <email> > file.asc'"}];
+  let currentTask = 0;
+  let completed = 0;
+  const totalTasks = tasks.length;
+  const terminal = document.getElementById('terminalBody');
+  const input = document.getElementById('terminalInput');
+  const hintText = document.getElementById('hintText');
+  const hintBtn = document.getElementById('hintBtn');
+  const progressText = document.getElementById('progressText');
+  const progressFill = document.getElementById('progressFill');
+  const prompt = 'student@cyber-lab:~$';
+
+  function addLine(text, cls) {
+    const div = document.createElement('div');
+    div.className = cls || 'output';
+    div.textContent = text;
+    terminal.appendChild(div);
+    terminal.scrollTop = terminal.scrollHeight;
+  }
+
+  function addPromptLine(cmd) {
+    const div = document.createElement('div');
+    div.innerHTML = '<span style="color:#3fb950">' + prompt + '</span> ' + escapeHtml(cmd);
+    terminal.appendChild(div);
+  }
+
+  function escapeHtml(text) {
+    const d = document.createElement('div');
+    d.textContent = text;
+    return d.innerHTML;
+  }
+
+  function normalizeCmd(cmd) {
+    return cmd.trim().toLowerCase().replace(/\s+/g, ' ');
+  }
+
+  function updateProgress() {
+    progressText.textContent = completed + ' / ' + totalTasks + ' tasks completed';
+    progressFill.style.width = (completed / totalTasks * 100) + '%';
+  }
+
+  function completeTask(idx) {
+    const taskEl = document.getElementById('task-' + idx);
+    if (taskEl) {
+      taskEl.classList.add('completed');
+    }
+    completed++;
+    updateProgress();
+    
+    if (completed >= totalTasks) {
+      addLine('');
+      addLine('🎉 Congratulations! All tasks completed!', 'success');
+      addLine('Review the Reflection question below to deepen your understanding.', 'info');
+      hintText.textContent = '✅ Lab complete! Review the reflection question below.';
+      hintBtn.style.display = 'none';
+    } else {
+      currentTask = idx + 1;
+      hintText.textContent = 'Complete task ' + (currentTask + 1) + ': ' + tasks[currentTask].instruction;
+      hintBtn.textContent = 'Show Hint';
+    }
+  }
+
+  // Check if command matches (flexible matching)
+  function matchesCommand(typed, expected) {
+    const t = normalizeCmd(typed);
+    const e = normalizeCmd(expected.split('\n')[0]);
+    
+    // Exact match
+    if (t === e) return true;
+    
+    // Match without sudo prefix variation
+    const tNoSudo = t.replace(/^sudo\s+/, '');
+    const eNoSudo = e.replace(/^sudo\s+/, '');
+    if (tNoSudo === eNoSudo) return true;
+    
+    // Match core command (ignore minor flag order differences)
+    const tParts = t.split(/\s+/).sort();
+    const eParts = e.split(/\s+/).sort();
+    if (tParts.join(' ') === eParts.join(' ')) return true;
+    
+    return false;
+  }
+
+  input.addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter') return;
+    const cmd = input.value.trim();
+    if (!cmd) return;
+    
+    input.value = '';
+    addPromptLine(cmd);
+
+    // Built-in commands
+    if (cmd.toLowerCase() === 'help') {
+      addLine('Available commands:', 'info');
+      addLine('  help     - Show this help message', 'output');
+      addLine('  hint     - Show hint for current task', 'output');
+      addLine('  clear    - Clear terminal', 'output');
+      addLine('  skip     - Skip current task', 'output');
+      addLine('  reset    - Reset lab', 'output');
+      addLine('');
+      return;
+    }
+    
+    if (cmd.toLowerCase() === 'clear') {
+      terminal.innerHTML = '';
+      return;
+    }
+    
+    if (cmd.toLowerCase() === 'hint') {
+      if (currentTask < totalTasks) {
+        addLine('💡 Hint: ' + tasks[currentTask].hint, 'warning');
+      }
+      return;
+    }
+    
+    if (cmd.toLowerCase() === 'skip') {
+      if (currentTask < totalTasks) {
+        addLine('⏭️ Skipped task ' + (currentTask + 1), 'warning');
+        completeTask(currentTask);
+      }
+      return;
+    }
+    
+    if (cmd.toLowerCase() === 'reset') {
+      location.reload();
+      return;
+    }
+
+    // Check against current task
+    if (currentTask < totalTasks) {
+      const task = tasks[currentTask];
+      if (matchesCommand(cmd, task.command)) {
+        // Correct command
+        if (task.output) {
+          task.output.split('\n').forEach(line => {
+            addLine(line, 'success');
+          });
+        }
+        addLine('');
+        addLine('✅ Task ' + (currentTask + 1) + ' completed!', 'success');
+        addLine('');
+        completeTask(currentTask);
+      } else {
+        // Check if it matches any OTHER task (not just current)
+        let found = false;
+        for (let i = currentTask + 1; i < totalTasks; i++) {
+          if (matchesCommand(cmd, tasks[i].command)) {
+            addLine('⚠️ That command is for task ' + (i + 1) + '. Complete task ' + (currentTask + 1) + ' first.', 'warning');
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          addLine('❌ Command not recognized for the current task.', 'error');
+          addLine('💡 Type "hint" for a clue, or "help" for commands.', 'info');
+        }
+      }
+    } else {
+      addLine('All tasks are complete! Type "reset" to start over.', 'info');
+    }
+  });
+
+  hintBtn.addEventListener('click', function() {
+    if (currentTask < totalTasks) {
+      addLine('💡 Hint: ' + tasks[currentTask].hint, 'warning');
+      terminal.scrollTop = terminal.scrollHeight;
+    }
+  });
+
+  // Focus input on terminal click
+  document.querySelector('.terminal-wrap').addEventListener('click', function() {
+    input.focus();
+  });
+})();
+</script>
+</body>
+</html>

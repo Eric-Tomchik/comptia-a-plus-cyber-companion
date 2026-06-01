@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 6: TCP/IP Fundamentals and IP Addressing — CompTIA A+ Cyber Companion</title>
+  <meta name="description" content="Study resources for Chapter 6: TCP/IP Fundamentals and IP Addressing — Learning objectives, key topics, terms, and assessment tips.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="../index.html" class="nav-brand"><span class="icon">🛡️</span> A+ Cyber Companion</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="index.html" class="active">Chapters</a>
+      <a href="../reference/index.html">Reference</a>
+      <a href="../labs/index.html">Labs</a>
+      <a href="../glossary/index.html">Glossary</a>
+      <a href="../flashcards/index.html">Flashcards</a>
+      <a href="../quiz/index.html">Quiz</a>
+      <a href="../errata/index.html">Errata</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" style="padding:3rem 0 2rem">
+  <div class="container">
+    <div class="badge">Part III — Secure Network Clients</div>
+    <h1 style="font-size:1.8rem">Chapter 6</h1>
+    <p class="subtitle" style="font-size:1.2rem;max-width:700px">TCP/IP Fundamentals and IP Addressing</p>
+    <div style="margin-top:1rem"><span class="tag tag-cyan">Domain 3</span> <span class="tag tag-green" style="margin-left:.25rem">Lab 4</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:800px">
+
+
+    <div class="card fade-in" style="margin-bottom:2rem">
+      <h2 style="font-size:1.1rem;margin-bottom:1rem">📖 Key Topics Covered</h2>
+      <ul class="sec-list">
+          <li><span class="sec-bullet">▸</span> TCP/IP Fundamentals and IP</li>
+          <li><span class="sec-bullet">▸</span> Understanding the TCP/IP Model</li>
+          <li><span class="sec-bullet">▸</span> TCP/IP Layers</li>
+          <li><span class="sec-bullet">▸</span> KEY PROTOCOLS</li>
+          <li><span class="sec-bullet">▸</span> SECURITY CONCERNS</li>
+          <li><span class="sec-bullet">▸</span> User‐facing services and</li>
+          <li><span class="sec-bullet">▸</span> SMTP, SSH, FTP</li>
+          <li><span class="sec-bullet">▸</span> TCP, UDP</li>
+          <li><span class="sec-bullet">▸</span> SYN floods, session</li>
+          <li><span class="sec-bullet">▸</span> Logical addressing and</li>
+          <li><span class="sec-bullet">▸</span> IP, ICMP, ARP</li>
+          <li><span class="sec-bullet">▸</span> ICMP attacks</li>
+          <li><span class="sec-bullet">▸</span> Physical transmission of</li>
+          <li><span class="sec-bullet">▸</span> Ethernet, Wi‐Fi</li>
+          <li><span class="sec-bullet">▸</span> Eavesdropping, MAC</li>
+      </ul>
+    </div>
+
+    <div class="card fade-in" style="margin-bottom:2rem">
+      <h2 style="font-size:1.1rem;margin-bottom:1rem">🔑 Key Terms</h2>
+      <div class="term-cloud">
+        <span class="term-tag">Acknowledge</span>
+        <span class="term-tag">DHCP (Dynamic Host Configuration Protocol)</span>
+        <span class="term-tag">DNS (Domain Name System)</span>
+        <span class="term-tag">DNS (IP to hostname)</span>
+        <span class="term-tag">Discover</span>
+        <span class="term-tag">FTP (File Transfer
+
+SFTP (port 22)</span>
+        <span class="term-tag">FTPS (port 990)</span>
+        <span class="term-tag">HTTP (unencrypted
+
+HTTPS (port 443)</span>
+        <span class="term-tag">HTTPS (encrypted
+
+Already secure
+
+web)</span>
+        <span class="term-tag">IMAP (Email retrieval)</span>
+        <span class="term-tag">IMAPS (port 993)</span>
+        <span class="term-tag">Offer</span>
+        <span class="term-tag">RDP (Remote Desktop)</span>
+        <span class="term-tag">Request</span>
+        <span class="term-tag">SMTP (Email sending)</span>
+        <span class="term-tag">SSH (Secure Shell)</span>
+        <span class="term-tag">SSH (port 22)</span>
+      </div>
+      <p style="margin-top:1rem;font-size:.8rem;color:var(--text-dim)">See the full definitions in the <a href="../glossary/index.html">Glossary</a> and test yourself with <a href="../flashcards/index.html">Flashcards</a>.</p>
+    </div>
+
+    <div class="fade-in" style="margin-bottom:2rem">
+      <h2 style="font-size:1.1rem;margin-bottom:1rem">Assessment Tips</h2>
+      <div class="tip-box">
+        <span class="tip-label">💡 Assessment Tip</span>
+        <p>Memorize the common ports table above. The exam will test your ability to identify services by port number and determine which protocols are secure vs. insecure. Remember: Telnet (23), FTP (21), and HTTP (80) are insecure—always use their encrypted a</p>
+      </div>
+    </div>
+
+    <div class="card fade-in" style="border-color:var(--green);margin-bottom:2rem">
+      <h2 style="font-size:1.1rem;margin-bottom:.5rem">🧪 Hands-On Lab</h2>
+      <p>This chapter includes <strong>Lab 4</strong> in Appendix E. <a href="../labs/index.html">View lab setup guide →</a></p>
+    </div>
+
+    <!-- Chapter navigation -->
+    <div class="ch-nav fade-in">
+      <a href="ch05.html" class="btn btn-outline">← Chapter 5</a>
+      <a href="index.html" class="btn btn-outline">All Chapters</a>
+      <a href="ch07.html" class="btn btn-outline">Chapter 7 →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <span class="footer-brand">ArcLight Press</span>
+    <p>&copy; 2026 Eric Tomchik. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../js/app.js"></script>
+</body>
+</html>
