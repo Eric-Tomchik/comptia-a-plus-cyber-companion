@@ -6,7 +6,7 @@ Published by **ArcLight Press**
 
 ## 🌐 Live Site
 
-[erictomchik.com/comptia-a-plus-cyber-companion](https://erictomchik.com/comptia-a-plus-cyber-companion)
+[https://eric-tomchik.github.io/comptia-a-plus-cyber-companion/]
 
 ## 📁 Site Structure
 
